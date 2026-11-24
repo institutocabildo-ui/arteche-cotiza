@@ -75,6 +75,28 @@
 <div class="panel-heading"><div><span class="section-kicker">05 / REFERENCIAS ARGENTINAS</span><h2>Cotizaciones del dólar</h2><p>Compra y venta reportadas por el proveedor consultado.</p></div><span class="data-source">DOLARAPI</span></div>
 <div id="fx" class="rates-grid"><div class="loading-card">Consultando cotizaciones…</div></div>
 </section>
+
+<section class="insight-grid">
+<section class="panel history-panel">
+<div class="panel-heading"><div><span class="section-kicker">06 / EVOLUCIÓN HISTÓRICA</span><h2>Historial de mercado</h2><p id="history-caption">Serie histórica consultada a proveedores externos.</p></div><select id="history-range" aria-label="Período del gráfico"><option value="7">7 días</option><option value="30" selected>30 días</option><option value="90">90 días</option></select></div>
+<div class="history-stat"><strong id="history-current">—</strong><span id="history-change">Esperando serie histórica</span></div>
+<div class="history-chart-wrap"><canvas id="history-chart" aria-label="Gráfico histórico de cotizaciones" role="img"></canvas><div id="history-empty" class="history-empty">Cargando historial verificable…</div></div>
+<div class="history-foot"><span id="history-source">Fuente histórica: proveedores externos</span><span>La serie puede tener frecuencia diaria</span></div>
+</section>
+<section class="panel compare-panel">
+<div class="panel-heading"><div><span class="section-kicker">07 / DIFERENCIA ENTRE MERCADOS</span><h2>Comparador de dólar</h2><p>Brechas calculadas con precios de venta.</p></div></div>
+<div id="spread-list" class="spread-list"><p class="loading-card">Consultando cotizaciones…</p></div>
+<p class="calc-disclaimer">La brecha es una comparación aritmética, no una oportunidad garantizada de arbitraje. No contempla costos ni restricciones.</p>
+</section>
+</section>
+<section class="panel alert-panel">
+<div class="panel-heading"><div><span class="section-kicker">08 / MONITOREO PERSONAL</span><h2>Alertas de precio</h2><p>Definí un umbral y recibí un aviso mientras la terminal esté abierta.</p></div><span class="panel-symbol">⌁</span></div>
+<div class="alert-controls"><label>Activo<select id="alert-asset"><option value="blue">Dólar blue · ARS</option><option value="bolsa">Dólar MEP · ARS</option><option value="contadoconliqui">Dólar CCL · ARS</option><option value="oficial">Dólar oficial · ARS</option><option value="btc">Bitcoin · USD</option></select></label><label>Condición<select id="alert-condition"><option value="above">Sube por encima de</option><option value="below">Baja por debajo de</option></select></label><label>Precio objetivo<input id="alert-target" type="number" min="0" step="any" placeholder="Ej. 1500"></label><button id="save-alert" class="full-btn" type="button">Activar alerta</button></div>
+<div id="alert-status" class="alert-status" role="status" aria-live="polite">No hay alertas activas.</div>
+<div id="alert-list" class="alert-list"></div>
+</section>
+<p class="data-attribution">Datos de dólar: <a href="https://dolarclaro.com/api/" target="_blank" rel="noopener noreferrer">Dólar Claro</a> · Datos históricos: <a href="https://www.coingecko.com/en/api" target="_blank" rel="noopener noreferrer">CoinGecko</a> para Bitcoin. Cada proveedor conserva sus condiciones de uso.</p>
+
 <section class="panel activity-panel">
 <div class="activity-head"><div><span class="section-kicker">ARTECHE CLUB · PROGRESO</span><h2>Tu actividad en la terminal</h2><p>Experiencia por usar herramientas reales. Se guarda en este navegador.</p></div><div class="points"><small>PUNTOS</small><strong id="ag-puntos">0</strong></div></div>
 <div class="progress-track"><div id="ag-barra"></div></div><div class="activity-foot"><b id="ag-nivel">Explorador</b><span id="ag-next">Próximo nivel: Analista</span><span id="ag-actividad">0 días activos</span></div><p id="ag-toast" role="status" aria-live="polite">Completá una conversión para registrar actividad.</p>
