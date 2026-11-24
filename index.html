@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#07111f">
-<title>Arteche Terminal | Mercados, dólar y Bitcoin en vivo — Grupo Arteche</title>
+<title>ARTECH | Mercados, conversor e información financiera</title>
 <meta name="description" content="Terminal financiera de Grupo Arteche: gráficos de mercado, cotizaciones del dólar argentino, Bitcoin, conversor y noticias financieras.">
 <meta name="keywords" content="Arteche Terminal, dólar hoy, dólar blue, dólar MEP, Bitcoin precio, mercados, TradingView, conversor dólar">
-<meta name="author" content="Grupo Arteche"><meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="author" content="Santiago Barbosa"><meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://institutocabildo-ui.github.io/arteche-cotiza/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Grupo Arteche"><meta property="og:locale" content="es_AR">
 <meta property="og:title" content="Arteche Terminal — Mercados en una sola pantalla"><meta property="og:description" content="Dólar, Bitcoin, gráficos, conversor y contexto financiero.">
@@ -17,8 +17,8 @@
 <body>
 <div class="terminal-shell">
 <header class="topbar">
-<a class="brand" href="#"><span class="brand-mark">A/</span><span><b>ARTECHE</b><small>TERMINAL · MARKET INTELLIGENCE</small></span></a>
-<div class="top-meta"><span class="live-dot"></span><span id="connection-status">Conectando fuentes</span><span class="top-divider">|</span><span id="clock">--:--:--</span></div>
+<a class="brand" href="#"><span class="brand-mark">A/</span><span><b>ARTECH</b><small>POR SANTIAGO BARBOSA</small></span></a>
+<div class="top-meta"><span class="live-dot"></span><span id="connection-status">Conectando fuentes</span><span class="top-divider">|</span><span id="clock">--:--:--</span></div><div class="account-area"><span class="free-pill">GRATIS · BETA</span><button id="google-signin" class="google-btn" type="button"><span class="google-g">G</span> Entrar con Google</button><div id="account-user" class="account-user" hidden><img id="account-avatar" alt=""><span id="account-name"></span><button id="google-signout" type="button">Salir</button></div></div>
 <button id="refresh" class="refresh-btn" type="button">↻ <span>Actualizar</span></button>
 </header>
 <main>
@@ -111,12 +111,12 @@
 <section class="panel global-fx-panel" id="global-fx"><div class="panel-heading"><div><span class="section-kicker">09 / MERCADO DE DIVISAS GLOBAL</span><h2>Monedas del mundo</h2><p>Referencias internacionales diarias frente al USD. No equivalen a cotizaciones bancarias locales.</p></div><span class="data-source" id="fx-global-updated">FRANKFURTER / ECB</span></div><div id="global-fx-grid" class="global-fx-grid"><div class="loading-card">Consultando divisas…</div></div><p class="calc-disclaimer">Fuente internacional de referencia. Para conversiones con ARS se utiliza el dólar blue de compra/venta disponible en la terminal; el resultado es estimativo y no una oferta de cambio.</p></section>
 <section class="panel crypto-market-panel" id="crypto-markets"><div class="panel-heading"><div><span class="section-kicker">10 / CRIPTOACTIVOS</span><h2>Mercado cripto · Top 250</h2><p>Listado por capitalización de mercado, con precio, variación 24 h y volumen.</p></div><span class="data-source" id="crypto-updated">POWERED BY COINGECKO</span></div><div class="crypto-tools"><input id="crypto-search" type="search" placeholder="Buscar moneda, símbolo… (ej. Solana, XRP)" aria-label="Buscar criptoactivo"><span id="crypto-count">Cargando activos…</span></div><div class="crypto-table-wrap"><table class="crypto-table"><thead><tr><th>#</th><th>Activo</th><th>Precio USD</th><th>24 h</th><th>Capitalización</th><th>Volumen 24 h</th></tr></thead><tbody id="crypto-rows"><tr><td colspan="6">Consultando mercado cripto…</td></tr></tbody></table></div><p class="calc-disclaimer">Listado de hasta 250 criptoactivos principales por capitalización. Los tokens de baja liquidez o no indexados pueden no aparecer. Los datos dependen de disponibilidad y límites de CoinGecko.</p></section>
 <section class="panel activity-panel">
-<div class="activity-head"><div><span class="section-kicker">ARTECHE CLUB · PROGRESO</span><h2>Tu actividad en la terminal</h2><p>Experiencia por usar herramientas reales. Se guarda en este navegador.</p></div><div class="points"><small>PUNTOS</small><strong id="ag-puntos">0</strong></div></div>
+<div class="activity-head"><div><span class="section-kicker">ARTECH CLUB · PROGRESO</span><h2>Tu actividad en la terminal</h2><p id="activity-account-note">Iniciá sesión con Google para identificar tu perfil. Por ahora, los puntos se guardan en este dispositivo.</p></div><div class="points"><small>PUNTOS</small><strong id="ag-puntos">0</strong></div></div>
 <div class="progress-track"><div id="ag-barra"></div></div><div class="activity-foot"><b id="ag-nivel">Explorador</b><span id="ag-next">Próximo nivel: Analista</span><span id="ag-actividad">0 días activos</span></div><p id="ag-toast" role="status" aria-live="polite">Completá una conversión para registrar actividad.</p>
 </section>
 <p class="disclaimer">IMPORTANTE: Los gráficos son widgets externos. Las cotizaciones se consultan a proveedores terceros y pueden tener retrasos, errores o indisponibilidad. La información es educativa y referencial; no constituye asesoramiento financiero ni una oferta de compra o venta.</p>
 </main>
-<footer><span>GRUPO ARTECHE</span><span>TECHNOLOGY · INTELLIGENCE · BUSINESS SOLUTIONS</span><span>ARTECHE TERMINAL · BETA</span></footer>
+<footer><span>ARTECH</span><span>UNA PLATAFORMA DE SANTIAGO BARBOSA</span><span>GRATIS · BETA</span></footer>
 </div>
-<script src="app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script><script src="firebase-config.js"></script><script src="app.js"></script>
 </body></html>
