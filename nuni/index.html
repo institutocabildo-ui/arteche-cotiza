@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#173f32">
+<title>Nuni — Solitario</title>
+<style>
+:root{--felt:#15513d;--felt2:#0d382d;--gold:#e8d6a2;--cream:#fffdf5;--ink:#17231e;--red:#c94a48;--muted:#c8d9ce}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--felt2);font-family:Georgia,'Times New Roman',serif;color:var(--cream);overscroll-behavior:none}
+body{background:radial-gradient(ellipse at 50% 25%,#22674d 0,#15513d 52%,#0d382d 100%);min-height:100svh}
+.app{max-width:620px;margin:auto;min-height:100svh;padding:calc(14px + env(safe-area-inset-top)) 12px calc(18px + env(safe-area-inset-bottom));display:flex;flex-direction:column}
+header{text-align:center;padding:5px 0 16px}.ornament{color:var(--gold);font-size:13px;letter-spacing:.32em}.brand{font-size:clamp(38px,10vw,54px);line-height:1;margin:5px 0 4px;letter-spacing:.02em;color:#fff5dc;text-shadow:0 2px 16px #061d16}.subtitle{font:10px/1.4 system-ui,sans-serif;letter-spacing:.28em;color:#d6e3d5;text-transform:uppercase}
+.topline{display:flex;justify-content:space-between;align-items:center;margin:2px 1px 12px;font:12px system-ui,sans-serif;color:#e1eadf}.stats{display:flex;gap:16px}.stats b{color:#fff;font-weight:700}
+.board{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;touch-action:pan-y}
+.pile{position:relative;min-width:0;min-height:clamp(92px,25vw,116px);border:1px solid #ffffff32;border-radius:7px;background:#082f2633}
+.card{position:absolute;left:0;right:0;height:clamp(76px,20vw,98px);border-radius:6px;background:var(--cream);color:var(--ink);box-shadow:0 2px 4px #061b1680;border:1px solid #e8e1d1;display:flex;flex-direction:column;justify-content:space-between;padding:4px 5px;font-family:Georgia,serif;user-select:none;-webkit-user-select:none;touch-action:manipulation;cursor:pointer}
+.card.red{color:var(--red)}.card.back{background:repeating-linear-gradient(45deg,#174e68,#174e68 5px,#f0dca8 5px,#f0dca8 7px);border:3px solid #fff4d9;color:transparent}
+.card .corner{font-size:clamp(12px,3.5vw,17px);font-weight:bold;line-height:.9}.card .suit{font-size:clamp(10px,2.8vw,14px)}.card .big{font-size:clamp(22px,6vw,32px);align-self:center;line-height:1}
+.card.selected{outline:3px solid #f1d47f;transform:translateY(-4px);z-index:5}
+.stockrow{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin-bottom:12px}.stockslot{height:clamp(76px,20vw,98px);position:relative;border-radius:7px}
+.stockslot .card{height:100%}.placeholder{height:100%;border:1px dashed #ffffff70;border-radius:7px;display:grid;place-items:center;color:#ffffff9c;font-size:26px}
+.tableau{margin-top:12px;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;flex:1;align-items:start}.tableau .pile{min-height:clamp(170px,48vw,260px);background:transparent;border:0}
+.tableau .card{height:clamp(76px,20vw,98px)}.foundation .placeholder{font-size:21px}
+.controls{display:flex;justify-content:center;gap:10px;margin:18px 0 8px}.btn{border:1px solid #d7c99b;background:#f5e8c7;color:#244537;border-radius:999px;padding:11px 17px;font:600 12px system-ui,sans-serif;box-shadow:0 3px 0 #0b2d23;cursor:pointer}.btn.secondary{background:#174b3a;color:#fff1cf;border-color:#9bb7a1}.hint{text-align:center;min-height:22px;color:#e0e8d9;font:12px system-ui,sans-serif;padding:2px 8px}.footer{text-align:center;color:#c5d6c8a8;font:10px system-ui,sans-serif;letter-spacing:.1em;margin-top:8px}
+.modal{position:fixed;inset:0;background:#061d16c9;display:none;place-items:center;padding:24px;z-index:20}.modal.show{display:grid}.dialog{max-width:330px;background:#f8efd9;color:#214536;border-radius:18px;padding:28px;text-align:center;box-shadow:0 20px 80px #0008}.dialog h2{font-size:32px;margin:0 0 8px}.dialog p{font:14px/1.5 system-ui,sans-serif}.dialog .btn{background:#174b3a;color:white}
+@media(min-width:500px){.board,.tableau,.stockrow{gap:9px}.app{padding-left:18px;padding-right:18px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header><div class="ornament">✦ ♡ ✦</div><div class="brand">Nuni</div><div class="subtitle">Un solitario para vos</div></header>
+<div class="topline"><div class="stats"><span>Movimientos <b id="moves">0</b></span><span>Tiempo <b id="time">00:00</b></span></div><span>♧ Clásico</span></div>
+<div class="stockrow">
+ <div class="stockslot" id="stock"><div class="placeholder">↻</div></div>
+ <div class="stockslot" id="waste"><div class="placeholder"></div></div>
+ <div class="stockslot foundation" data-foundation="0"><div class="placeholder">♧</div></div>
+ <div class="stockslot foundation" data-foundation="1"><div class="placeholder">♧</div></div>
+ <div class="stockslot foundation" data-foundation="2"><div class="placeholder">♧</div></div>
+ <div class="stockslot foundation" data-foundation="3"><div class="placeholder">♧</div></div>
+ <div class="stockslot"><div class="placeholder" style="font-size:11px">NUNI</div></div>
+</div>
+<div class="tableau" id="tableau">
+ <div class="pile" data-pile="0"></div><div class="pile" data-pile="1"></div><div class="pile" data-pile="2"></div><div class="pile" data-pile="3"></div><div class="pile" data-pile="4"></div><div class="pile" data-pile="5"></div><div class="pile" data-pile="6"></div>
+</div>
+<div class="hint" id="hint">Tocá el mazo para repartir. Después, mové las cartas.</div>
+<div class="controls"><button class="btn secondary" id="undo">↶ Deshacer</button><button class="btn" id="new">Nuevo juego</button></div>
+<div class="footer">HECHO CON CARIÑO · NUNI ♡</div>
+</div>
+<div class="modal" id="win"><div class="dialog"><div style="font-size:30px">✦ ♡ ✦</div><h2>¡Lo lograste!</h2><p>Una partida preciosa. Nuni, este juego es para vos.</p><button class="btn" id="again">Jugar otra vez</button></div></div>
+<script>
+const suits=['♠','♥','♦','♣'],names=['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
+let stock=[],waste=[],found=[[],[],[],[]],cols=[],selected=null,moves=0,history=[],started=Date.now(),ticker=null;
+const $=id=>document.getElementById(id);
+const red=s=>s==='♥'||s==='♦';
+function deck(){let d=[];for(let s of suits)for(let v=1;v<=13;v++)d.push({s,v,up:false,id:s+v});for(let i=d.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[d[i],d[j]]=[d[j],d[i]]}return d}
+function snap(){history.push(JSON.stringify({stock,waste,found,cols,moves}));if(history.length>100)history.shift()}
+function restore(){if(!history.length)return;let x=JSON.parse(history.pop());({stock,waste,found,cols,moves}=x);selected=null;render()}
+function start(){let d=deck();stock=[];waste=[];found=[[],[],[],[]];cols=Array.from({length:7},()=>[]);for(let i=0;i<7;i++)for(let j=0;j<=i;j++){let c=d.pop();c.up=j===i;cols[i].push(c)}stock=d;moves=0;history=[];selected=null;started=Date.now();$('win').classList.remove('show');$('hint').textContent='Tocá el mazo para repartir. Después, mové las cartas.';render()}
+function cardHTML(c,loc,index,offset){if(!c.up)return '<div class="card back" data-loc="'+loc+'" data-index="'+index+'" style="top:'+offset+'px"></div>';return '<div class="card '+(red(c.s)?'red':'')+(selected&&selected.loc===loc&&selected.index===index?' selected':'')+'" data-loc="'+loc+'" data-index="'+index+'" style="top:'+offset+'px"><div class="corner">'+names[c.v-1]+'<br><span class="suit">'+c.s+'</span></div><div class="big">'+c.s+'</div><div class="corner" style="align-self:flex-end;transform:rotate(180deg)">'+names[c.v-1]+'<br><span class="suit">'+c.s+'</span></div></div>'}
+function render(){ $('moves').textContent=moves;$('stock').innerHTML=stock.length?'<div class="card back" id="draw"></div>':'<div class="placeholder" id="draw">↻</div>';$('waste').innerHTML=waste.length?cardHTML(waste[waste.length-1],'waste',waste.length-1,0):'<div class="placeholder"></div>';
+ document.querySelectorAll('[data-foundation]').forEach((el,i)=>{let a=found[i];el.innerHTML=a.length?cardHTML(a[a.length-1],'foundation'+i,a.length-1,0):'<div class="placeholder">♧</div>'});
+ document.querySelectorAll('[data-pile]').forEach((el,i)=>{el.innerHTML='';cols[i].forEach((c,j)=>el.insertAdjacentHTML('beforeend',cardHTML(c,'col'+i,j,j*24)));el.style.minHeight=Math.max(170,cols[i].length*24+98)+'px'});
+ $('draw').onclick=draw;document.querySelectorAll('.card').forEach(el=>el.addEventListener('click',e=>{e.stopPropagation();tapCard(el.dataset.loc,+el.dataset.index)}));document.querySelectorAll('[data-pile]').forEach(el=>el.onclick=()=>tapPile(+el.dataset.pile));document.querySelectorAll('[data-foundation]').forEach(el=>el.onclick=()=>tapFoundation(+el.dataset.foundation));
+}
+function draw(){snap();if(stock.length){let c=stock.pop();c.up=true;waste.push(c)}else if(waste.length){stock=waste.reverse().map(c=>({...c,up:false}));waste=[]}else{$('hint').textContent='No quedan cartas en el mazo.';history.pop()}moves++;render()}
+function getRun(loc,index){if(loc==='waste')return [waste[index]];if(loc.startsWith('col'))return cols[+loc.slice(3)].slice(index);if(loc.startsWith('foundation'))return [found[+loc.slice(10)][index]];return []}
+function removeRun(loc,index){if(loc==='waste')return [waste.pop()];if(loc.startsWith('col')){let a=cols[+loc.slice(3)],r=a.splice(index);if(a.length)a[a.length-1].up=true;return r}return []}
+function validOnCard(run,target){let c=run[0];return target?target.up&&red(target.s)!==red(c.s)&&target.v===c.v+1:c.v===13}
+function tapCard(loc,index){if(!loc)return;if(selected){if(selected.loc===loc&&selected.index===index){selected=null;render();return}let run=getRun(selected.loc,selected.index),target=getRun(loc,index)[0];if(loc.startsWith('col')&&validOnCard(run,target)){snap();let moved=removeRun(selected.loc,selected.index);cols[+loc.slice(3)].push(...moved);moves++;selected=null;render();checkWin();return}if(loc.startsWith('foundation')&&run.length===1&&canFoundation(run[0],+loc.slice(10))){snap();found[+loc.slice(10)].push(...removeRun(selected.loc,selected.index));moves++;selected=null;render();checkWin();return}}
+ if(loc==='waste'||loc.startsWith('col')){let run=getRun(loc,index);if(run.length&&run.every(c=>c.up)){selected={loc,index};render()}}
+}
+function tapPile(i){if(selected){let run=getRun(selected.loc,selected.index),target=cols[i].at(-1);if(validOnCard(run,target)){snap();cols[i].push(...removeRun(selected.loc,selected.index));moves++;selected=null;render();checkWin();return}selected=null;render();return}let a=cols[i];if(a.length){selected={loc:'col'+i,index:a.length-1};render()}}
+function canFoundation(c,i){let a=found[i];return a.length? a.at(-1).s===c.s&&c.v===a.at(-1).v+1:c.v===1}
+function tapFoundation(i){if(selected){let run=getRun(selected.loc,selected.index);if(run.length===1&&canFoundation(run[0],i)){snap();found[i].push(...removeRun(selected.loc,selected.index));moves++;selected=null;render();checkWin();return}}let loc='waste',c=waste.at(-1);if(c&&canFoundation(c,i)){snap();found[i].push(waste.pop());moves++;render();checkWin()}}
+function checkWin(){if(found.every(a=>a.length===13))$('win').classList.add('show')}
+$('undo').onclick=restore;$('new').onclick=()=>{if(confirm('¿Empezamos una partida nueva?'))start()};$('again').onclick=start;
+ticker=setInterval(()=>{let s=Math.floor((Date.now()-started)/1000);$('time').textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')},1000);
+start();
+</script>
+</body></html>
