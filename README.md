@@ -34,7 +34,7 @@ Each provider has its own availability, rate limits, refresh frequency, license 
 
 ## Technology
 
-Static HTML, CSS and JavaScript. No backend or user account is required for the current prototype. User preferences and alerts are stored locally in the browser. No trades are executed, no funds are held and no brokerage service is provided.
+Static HTML, CSS and JavaScript. Google sign-in UI is wired for Firebase Authentication, but live authentication requires a Firebase project, enabled Google provider, authorized GitHub Pages domain and the real web-app config in `firebase-config.js`. This repository does not contain credentials. Activity points remain device-local in this beta and are partitioned by signed-in UID; they are not cloud-synced yet. No trades are executed, no funds are held and no brokerage service is provided.
 
 ## Commercial model
 
