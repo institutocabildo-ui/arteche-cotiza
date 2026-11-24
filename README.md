@@ -1,29 +1,52 @@
-# Arteche Cotiza
+# ARTECHE TERMINAL
+### Financial market intelligence · Grupo Arteche
 
-**Market data and financial reference dashboard by Grupo Arteche.**
+Arteche Terminal is a responsive financial dashboard focused on Argentine FX references and selected digital assets. It combines market context, charting, conversion tools and personal price monitoring in one interface.
 
-Arteche Cotiza centralizes reference quotes for the Argentine market and selected digital assets in a responsive web interface.
+**Live demo:** https://institutocabildo-ui.github.io/arteche-cotiza/
 
-## Product scope
-- Argentine FX references: official, blue, MEP, CCL, wholesale and card rates when the upstream source provides them.
-- Selected cryptoasset prices and 24-hour variation.
-- Market charts and source attribution.
-- Last-update timestamps and visible unavailable/stale-data states.
-- Responsive layout and installable PWA experience.
+## Product modules
 
-## Data integrity
-Every displayed value must be traceable to a provider and its update time. Missing values must remain missing; the application must never fabricate buy/sell prices or timestamps. Provider outages, rate limits and schema changes must be surfaced clearly.
+- **Market desk:** Bitcoin and Argentine dollar views, market ticker and live reference cards.
+- **TradingView charts:** embedded BTC/USDT and USD/ARS reference charts. USD/ARS is not the blue, MEP or CCL exchange rate.
+- **FX dashboard:** official, blue, MEP, CCL, wholesale and card references when the upstream source returns them.
+- **Historical chart:** Bitcoin history through CoinGecko and daily FX history through Dólar Claro. If a provider is unavailable, the chart reports that no data is available instead of drawing simulated values.
+- **Currency converter:** directional buy/sell quote logic for ARS↔USD and reference conversion with BTC.
+- **Market comparison:** percentage differences against the official dollar, calculated from reported sell prices.
+- **Price alerts:** browser-local thresholds checked during periodic refreshes while the page remains open. Alerts are not a server-side or guaranteed push-notification service.
+- **Market context:** curated external news-source links; the terminal does not fabricate headlines.
 
-## Current development status
-Prototype under active development. Provider response schemas, freshness and browser CORS behavior must be verified before treating the dashboard as production-ready.
+## Data providers and attribution
 
-## Run locally
-Serve the repository root with any static HTTP server. No build step is required for the static prototype.
+- Argentine current quotes: DólarAPI.
+- Argentine historical series: Dólar Claro / ArgentinaDatos. Dólar Claro requires visible attribution and a link when its data is displayed.
+- Bitcoin current and historical data: CoinGecko. Historical charts display provider attribution.
+- Embedded charts: TradingView.
 
-## Planned sources
-- Argentine FX: Dólar Claro public API (response schema and availability require live validation).
-- Cryptoassets: CoinGecko public API (subject to provider limits and terms).
-- Charts: TradingView embed.
+Each provider has its own availability, rate limits, refresh frequency, license and commercial-use terms. **The right to use Arteche Terminal does not include a right to resell, redistribute, sublicense or proxy third-party data or API access.** A commercial deployment must review provider terms and secure any required commercial data permissions.
+
+## Technology
+
+Static HTML, CSS and JavaScript. No backend or user account is required for the current prototype. User preferences and alerts are stored locally in the browser. No trades are executed, no funds are held and no brokerage service is provided.
+
+## Commercial model
+
+Grupo Arteche retains ownership of the Arteche Terminal source code, product identity and original design, subject to third-party components and data-provider rights. Commercial customers may receive a **limited commercial-use license** under a separate written agreement. The agreement must define permitted deployment, users, territory, term, support, customization, branding, restrictions and fees. No transfer of ownership or exclusive rights is implied.
+
+## Production-readiness checklist
+
+Before a customer deployment:
+1. Verify all provider endpoints, response schemas, freshness and rate limits in the target environment.
+2. Confirm commercial permissions for every data source and embedded chart.
+3. Add a server-side data layer if higher reliability, caching or multiple customer deployments are required.
+4. Add monitoring, error reporting, accessibility checks and cross-browser/mobile QA.
+5. Define the customer license and support scope in writing.
+6. Do not market the current static prototype as an execution platform, investment recommendation service or guaranteed real-time institutional feed.
+
+## Local preview
+
+Serve the repository root using any static HTTP server. There is no build step.
 
 ## Disclaimer
-Market information is for informational purposes only and is not investment advice. Always verify prices with the relevant broker or market source before transacting.
+
+Market data is indicative and may be delayed, incomplete or unavailable. The dashboard is informational only and is not investment, legal or tax advice. Always verify prices, costs and execution conditions with the relevant provider before transacting.
