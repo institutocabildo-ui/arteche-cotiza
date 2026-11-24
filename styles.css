@@ -166,3 +166,5 @@ footer{border-color:var(--line);padding:24px 0 30px}
  .quote-main strong{font-size:25px}
  .chart-frame{height:340px}
 }
+
+.platform-link{display:inline-flex;align-items:center;justify-content:center;padding:9px 13px;border:1px solid #6ed9b7;border-radius:8px;color:#6ed9b7;text-decoration:none;font-size:10px;font-weight:800;letter-spacing:.09em;white-space:nowrap}.platform-link:hover{background:#6ed9b71a}@media(max-width:760px){.platform-link{font-size:9px;padding:8px}.topbar{gap:9px}}

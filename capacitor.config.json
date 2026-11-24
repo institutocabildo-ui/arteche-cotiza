@@ -1,0 +1,12 @@
+{
+  "appId": "com.grupoarteche.app",
+  "appName": "ARTECHE",
+  "webDir": "app",
+  "server": {
+    "androidScheme": "https",
+    "cleartext": false
+  },
+  "android": {
+    "allowMixedContent": false
+  }
+}

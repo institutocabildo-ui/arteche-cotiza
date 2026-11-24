@@ -1,0 +1,14 @@
+{
+  "id": "/arteche-cotiza/app/",
+  "name": "ARTECHE — Cotizaciones & Bonos",
+  "short_name": "ARTECHE",
+  "description": "Cotizaciones, mercados y análisis de renta fija en una sola aplicación.",
+  "lang": "es-AR",
+  "start_url": "/arteche-cotiza/app/",
+  "scope": "/arteche-cotiza/app/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#090d12",
+  "theme_color": "#090d12",
+  "categories": ["finance", "business", "productivity"]
+}
