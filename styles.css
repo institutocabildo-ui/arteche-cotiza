@@ -10,3 +10,16 @@
 .difference{grid-column:1/-1;background:#142e42;border-radius:11px;padding:15px;display:flex;align-items:center;justify-content:space-between;gap:12px}.difference strong{display:block;color:var(--mint);font-size:24px;margin-top:5px}.difference>span{font-size:13px;font-weight:700;color:var(--mint)}
 .manual-rates{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:end;margin-top:14px}.manual-rates>div{display:grid;gap:7px}.manual-rates input{min-width:0}
 @media(max-width:680px){.calculator{padding:16px}.calc-layout{grid-template-columns:1fr}.manual-rates{grid-template-columns:1fr 1fr}.manual-rates button{grid-column:1/-1}.calc-results{grid-template-columns:1fr 1fr}.result-card{padding:12px}.difference strong{font-size:20px}}
+
+/* Progreso de actividad transparente */
+.engagement{background:linear-gradient(135deg,#132b43,#0d1b2d);border:1px solid #31516b;border-radius:15px;padding:20px;margin:32px 0}
+.engagement-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.engagement-head small{color:var(--mint);font-size:10px;letter-spacing:.16em;font-weight:750}
+.engagement-head h2{margin:5px 0;font-size:21px}
+.engagement-head p{margin:0;color:var(--muted);font-size:11px}
+.score{text-align:right;min-width:80px}.score span{display:block;color:var(--muted);font-size:9px;letter-spacing:.15em}.score strong{font-size:27px;color:var(--mint)}
+.progress-track{height:8px;background:#263b50;border-radius:99px;overflow:hidden;margin:17px 0 10px}.progress-track div{height:100%;width:0;background:var(--mint);border-radius:99px;transition:width .25s ease}
+.engagement-foot{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:10px}.engagement-foot strong{color:var(--text)}
+.ag-toast{font-size:11px;color:var(--mint);margin:12px 0 0;min-height:17px}
+#copy-summary{grid-column:1/-1;justify-self:start;font-size:11px}
+@media(max-width:600px){.engagement{padding:16px}.engagement-head h2{font-size:18px}.engagement-foot{flex-direction:column;gap:4px}}
