@@ -1,7 +1,7 @@
 # ARTECHE TERMINAL
 ### Financial market intelligence · Grupo Arteche
 
-Arteche Terminal is a responsive financial dashboard covering global fiat references, Argentine FX markets and the top 100 cryptoassets by market capitalization. It combines market context, charting, conversion tools and personal price monitoring in one interface.
+Arteche Terminal is a responsive financial dashboard covering global fiat references, Argentine FX markets and the top 250 cryptoassets by market capitalization. It combines market context, charting, conversion tools and personal price monitoring in one interface.
 
 **Live demo:** https://institutocabildo-ui.github.io/arteche-cotiza/
 
@@ -9,7 +9,7 @@ Arteche Terminal is a responsive financial dashboard covering global fiat refere
 
 - **Market desk:** Bitcoin and Argentine dollar views, market ticker and live reference cards.
 - **Global FX:** daily USD reference rates for EUR, BRL, CNY, GBP, JPY, CHF, CAD, AUD, CLP, UYU, MXN, COP, PEN, PYG, BOB, ZAR, INR, SGD, HKD, KRW, TRY, SEK, NOK, DKK, PLN, THB, IDR and NZD through Frankfurter (ECB reference data).
-- **Crypto market:** up to 100 leading cryptoassets by market capitalization through CoinGecko, with search, USD price, 24-hour change, market cap and volume.
+- **Crypto market:** up to 250 leading cryptoassets by market capitalization through CoinGecko, with search, USD price, 24-hour change, market cap and volume.
 - **TradingView charts:** embedded BTC/USDT and USD/ARS reference charts. USD/ARS is not the blue, MEP or CCL exchange rate.
 - **FX dashboard:** official, blue, MEP, CCL, wholesale and card references when the upstream source returns them.
 - **Historical chart:** Bitcoin history through CoinGecko and daily FX history through Dólar Claro. If a provider is unavailable, the chart reports that no data is available instead of drawing simulated values.
