@@ -8,6 +8,9 @@ Arteche Terminal is a responsive financial dashboard covering global fiat refere
 ## Product modules
 
 - **Market desk:** Bitcoin and Argentine dollar views, market ticker and live reference cards.
+- **Mercosur dashboard:** ARS, BRL, PYG, UYU and BOB references; Argentina's blue and official rates are kept distinct. Membership status is explained separately.
+- **Europe dashboard:** EUR and selected European national currencies with daily reference rates.
+- **Political radar and in-page news:** GDELT DOC 2.0 feeds for politics, commodities, energy, markets and crypto; refreshed every 10 minutes while the page is open. Headlines link to original publishers; the page does not generate investment advice.
 - **Global FX:** daily USD reference rates for EUR, BRL, CNY, GBP, JPY, CHF, CAD, AUD, CLP, UYU, MXN, COP, PEN, PYG, BOB, ZAR, INR, SGD, HKD, KRW, TRY, SEK, NOK, DKK, PLN, THB, IDR and NZD through Frankfurter (ECB reference data).
 - **Crypto market:** up to 250 leading cryptoassets by market capitalization through CoinGecko, with search, USD price, 24-hour change, market cap and volume.
 - **TradingView charts:** embedded BTC/USDT and USD/ARS reference charts. USD/ARS is not the blue, MEP or CCL exchange rate.
@@ -53,4 +56,4 @@ Serve the repository root using any static HTTP server. There is no build step.
 
 ## Disclaimer
 
-Market data is indicative and may be delayed, incomplete or unavailable. The dashboard is informational only and is not investment, legal or tax advice. Always verify prices, costs and execution conditions with the relevant provider before transacting.
+Market data is indicative and may be delayed, incomplete or unavailable. News aggregation uses GDELT DOC 2.0 and depends on its indexing coverage, query limits and availability. The dashboard is informational only and is not investment, legal or tax advice. Always verify prices, costs and execution conditions with the relevant provider before transacting.
