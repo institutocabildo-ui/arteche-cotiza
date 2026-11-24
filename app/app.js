@@ -1,21 +1,12 @@
-const views=[...document.querySelectorAll(".view")];
-const nav=[...document.querySelectorAll(".nav-item")];
-function openView(id){
-  views.forEach(v=>v.classList.toggle("active",v.id===id));
-  nav.forEach(n=>n.classList.toggle("active",n.dataset.view===id));
-  if(id==="inicio") history.replaceState(null,"",location.pathname);
-  else history.replaceState(null,"","#"+id);
-  window.scrollTo({top:0,behavior:"instant"});
-}
+const views=[...document.querySelectorAll(".view")];const nav=[...document.querySelectorAll(".nav-item")];
+function openView(id){views.forEach(v=>v.classList.toggle("active",v.id===id));nav.forEach(n=>n.classList.toggle("active",n.dataset.view===id));history.replaceState(null,"",id==="inicio"?location.pathname:"#"+id);window.scrollTo({top:0,behavior:"instant"});}
 document.querySelectorAll("[data-view]").forEach(b=>b.addEventListener("click",()=>openView(b.dataset.view)));
 document.querySelectorAll("[data-open]").forEach(b=>b.addEventListener("click",()=>openView(b.dataset.open)));
-function routeFromHash(){const id=location.hash.slice(1);if(views.some(v=>v.id===id))openView(id)}
-window.addEventListener("hashchange",routeFromHash);routeFromHash();
-let installPrompt=null;const installButton=document.getElementById("install");
-window.addEventListener("beforeinstallprompt",event=>{event.preventDefault();installPrompt=event;installButton.hidden=false});
-installButton.addEventListener("click",async()=>{if(!installPrompt)return;installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;installButton.hidden=true});
-if("serviceWorker" in navigator && location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js").catch(error=>console.warn("Service worker no disponible",error));
-// Native AdMob test banner; browser/PWA sessions remain ad-free.
-window.addEventListener("load", () => {
-  window.startArtecheAdMob?.().catch(error => console.warn("AdMob skipped", error));
-});
+function routeFromHash(){const id=location.hash.slice(1);if(views.some(v=>v.id===id))openView(id)}window.addEventListener("hashchange",routeFromHash);routeFromHash();
+let installPrompt=null;const installButton=document.getElementById("install");window.addEventListener("beforeinstallprompt",event=>{event.preventDefault();installPrompt=event;installButton.hidden=false});installButton.addEventListener("click",async()=>{if(!installPrompt)return;installPrompt.prompt();await installPrompt.userChoice;installPrompt=null;installButton.hidden=true});
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./sw.js").catch(error=>console.warn("Service worker",error));
+const STORAGE_KEY="arteche.portfolio.v1";let trades=[];try{trades=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");if(!Array.isArray(trades))trades=[]}catch{trades=[]}
+function money(n,c){return new Intl.NumberFormat("es-AR",{style:"currency",currency:c,maximumFractionDigits:2}).format(n)}
+function renderPortfolio(){const total=trades.reduce((s,t)=>s+(t.type==="buy"?1:-1)*t.quantity*t.price,0);document.getElementById("portfolio-total").textContent=trades.length?money(total,"ARS"):"$ 0,00";document.getElementById("portfolio-count").textContent=String(trades.length);document.getElementById("portfolio-empty").hidden=trades.length>0;const list=document.getElementById("trade-list");list.replaceChildren();[...trades].reverse().forEach(t=>{const row=document.createElement("div");row.className="trade-row";const left=document.createElement("div");const name=document.createElement("b");name.textContent=t.asset+" · "+(t.type==="buy"?"Compra":"Venta");const meta=document.createElement("small");meta.textContent=new Date(t.date).toLocaleString("es-AR")+" · "+t.quantity+" unidades";left.append(name,meta);const value=document.createElement("strong");value.textContent=money(t.quantity*t.price,t.currency);row.append(left,value);list.append(row)})}
+document.getElementById("trade-form").addEventListener("submit",event=>{event.preventDefault();const asset=document.getElementById("trade-asset").value.trim().toUpperCase();const quantity=Number(document.getElementById("trade-quantity").value);const price=Number(document.getElementById("trade-price").value);if(!asset||!Number.isFinite(quantity)||quantity<=0||!Number.isFinite(price)||price<0)return;trades.push({id:String(Date.now()),asset,type:document.getElementById("trade-type").value,currency:document.getElementById("trade-currency").value,quantity,price,date:new Date().toISOString()});localStorage.setItem(STORAGE_KEY,JSON.stringify(trades));event.target.reset();renderPortfolio()});renderPortfolio();
+window.addEventListener("load",()=>window.startArtecheAdMob?.().catch(error=>console.warn("AdMob skipped",error)));
