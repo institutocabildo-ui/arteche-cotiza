@@ -38,6 +38,12 @@ jobs:
       - name: Add Android platform
         run: npx cap add android
 
+      - name: Build AdMob bridge
+        run: npm run build:admob
+
+      - name: Configure AdMob test app ID
+        run: npm run android:configure
+
       - name: Sync web app into Android
         run: npx cap sync android
 
