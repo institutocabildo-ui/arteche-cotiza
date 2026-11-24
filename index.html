@@ -1,73 +1,86 @@
-<!doctype html><html lang="es"><head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#081321" />
-
-  <title>Arteche Cotiza | Cotización del dólar y divisas en tiempo real — Grupo Arteche</title>
-  <meta name="description" content="Consultá la cotización actualizada del dólar y las principales monedas en Argentina. Una herramienta web simple, rápida y gratuita desarrollada por Grupo Arteche." />
-  <meta name="keywords" content="Arteche Cotiza, cotización dólar hoy, dólar blue, dólar MEP, dólar CCL, dólar oficial, calculadora dólar, cotización divisas Argentina, Bitcoin, Ethereum" />
-  <meta name="author" content="Grupo Arteche" />
-  <meta name="robots" content="index, follow, max-image-preview:large" />
-  <link rel="canonical" href="https://institutocabildo-ui.github.io/arteche-cotiza/" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Grupo Arteche" />
-  <meta property="og:locale" content="es_AR" />
-  <meta property="og:title" content="Arteche Cotiza — Dólar y monedas al instante" />
-  <meta property="og:description" content="Cotizaciones actualizadas del dólar y divisas en un solo lugar. Producto de Grupo Arteche." />
-  <meta property="og:url" content="https://institutocabildo-ui.github.io/arteche-cotiza/" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Arteche Cotiza — Dólar y monedas al instante" />
-  <meta name="twitter:description" content="Consultá cotizaciones del dólar y divisas en Argentina con la calculadora de Grupo Arteche." />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Arteche Cotiza",
-    "url": "https://institutocabildo-ui.github.io/arteche-cotiza/",
-    "applicationCategory": "FinanceApplication",
-    "operatingSystem": "Any",
-    "inLanguage": "es-AR",
-    "description": "Consultá la cotización actualizada del dólar y las principales monedas en Argentina. Herramienta web gratuita de Grupo Arteche.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Grupo Arteche"
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "ARS"
-    }
-  }
-  </script>
-
-  <link rel="stylesheet" href="styles.css" />
-</head><body><div class="shell"><header><a class="brand" href="#"><span class="mark">A/</span><span><b>GRUPO ARTECHE</b><small>MARKET INTELLIGENCE</small></span></a><button id="refresh">Actualizar ↻</button></header><main><section class="hero"><p class="eyebrow">MERCADOS · ARGENTINA</p><h1>El mercado,<br><em>en perspectiva.</em></h1><p>Referencias de divisas y activos digitales con fuentes y horarios visibles.</p><div class="stamp">Última consulta: <strong id="updated">—</strong> · <span id="status">Iniciando</span></div></section><section><div class="heading"><div><small>01 / TIPO DE CAMBIO</small><h2>Dólares argentinos</h2></div><span>ARS por USD</span></div><div id="fx" class="grid"><article class="card">Consultando fuente…</article></div></section><section class="calculator" id="calculadora">
-<div class="heading"><div><small>02 / CALCULADORA DE CAMBIO</small><h2>¿Cuántos pesos necesitás?</h2></div><span>Conversión y comparación</span></div>
-<div class="calc-layout">
-<div class="calc-controls">
-<label for="calc-amount">Importe a convertir</label>
-<div class="amount-wrap"><span id="amount-currency">$</span><input id="calc-amount" type="number" min="0" step="0.01" value="1000000" inputmode="decimal"></div>
-<label for="calc-mode">Quiero calcular</label>
-<select id="calc-mode"><option value="ars-usd">Cuántos dólares compro con pesos</option><option value="usd-ars">Cuántos pesos recibo por dólares</option></select>
-<label for="calc-rate-a">Primera cotización</label><select id="calc-rate-a"></select>
-<label for="calc-rate-b">Comparar contra</label><select id="calc-rate-b"></select>
-<label for="calc-fee">Comisión / gastos (%) <span class="optional">opcional</span></label><input id="calc-fee" type="number" min="0" max="100" step="0.01" value="0" inputmode="decimal">
-<p class="calc-note">Elegí cotizaciones de arriba o ingresá valores manuales. El cálculo es orientativo y no ejecuta operaciones.</p>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f">
+<title>Arteche Terminal | Mercados, dólar y Bitcoin en vivo — Grupo Arteche</title>
+<meta name="description" content="Terminal financiera de Grupo Arteche: gráficos de mercado, cotizaciones del dólar argentino, Bitcoin, conversor y noticias financieras.">
+<meta name="keywords" content="Arteche Terminal, dólar hoy, dólar blue, dólar MEP, Bitcoin precio, mercados, TradingView, conversor dólar">
+<meta name="author" content="Grupo Arteche"><meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://institutocabildo-ui.github.io/arteche-cotiza/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Grupo Arteche"><meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Arteche Terminal — Mercados en una sola pantalla"><meta property="og:description" content="Dólar, Bitcoin, gráficos, conversor y contexto financiero.">
+<meta property="og:url" content="https://institutocabildo-ui.github.io/arteche-cotiza/"><meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Arteche Terminal","url":"https://institutocabildo-ui.github.io/arteche-cotiza/","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"es-AR","publisher":{"@type":"Organization","name":"Grupo Arteche"}}</script>
+<link rel="preconnect" href="https://s.tradingview.com"><link rel="preconnect" href="https://dolarapi.com"><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="terminal-shell">
+<header class="topbar">
+<a class="brand" href="#"><span class="brand-mark">A/</span><span><b>ARTECHE</b><small>TERMINAL · MARKET INTELLIGENCE</small></span></a>
+<div class="top-meta"><span class="live-dot"></span><span id="connection-status">Conectando fuentes</span><span class="top-divider">|</span><span id="clock">--:--:--</span></div>
+<button id="refresh" class="refresh-btn" type="button">↻ <span>Actualizar</span></button>
+</header>
+<main>
+<section class="market-heading">
+<div><div class="eyebrow">GRUPO ARTECHE / TERMINAL DE MERCADOS</div><h1>El mercado,<br><em>en una sola pantalla.</em></h1><p>Gráficos, referencias y herramientas para entender el movimiento.</p></div>
+<div class="market-date"><span>HORA LOCAL · ARGENTINA</span><strong id="market-date">—</strong><small>Datos sujetos a disponibilidad de proveedores</small></div>
+</section>
+<section class="asset-tabs" aria-label="Seleccionar mercado">
+<button class="asset-tab active" data-asset="btc" type="button"><span class="tab-icon btc">₿</span><span><b>Bitcoin</b><small>BTC / USD · Cripto</small></span><i>●</i></button>
+<button class="asset-tab" data-asset="usd" type="button"><span class="tab-icon usd">$</span><span><b>Dólar</b><small>USD / ARS · Argentina</small></span><i>●</i></button>
+</section>
+<section class="quote-strip">
+<article class="quote-main"><span id="active-quote-label">BITCOIN · BTC/USD</span><strong id="active-price">Cargando…</strong><small id="active-change">Fuente: CoinGecko</small></article>
+<article class="quote-mini"><span id="quote-secondary-label">MÁXIMO / MÍNIMO 24 H</span><strong id="quote-secondary">—</strong><small id="quote-secondary-detail">Rango diario</small></article>
+<article class="quote-mini"><span>ÚLTIMA ACTUALIZACIÓN</span><strong id="quote-updated">—</strong><small>Consulta automática</small></article>
+<article class="quote-mini"><span>REFERENCIA LOCAL</span><strong id="local-reference">—</strong><small id="local-reference-detail">Cotización argentina</small></article>
+</section>
+<section class="workspace">
+<div class="chart-column">
+<div class="panel chart-panel">
+<div class="panel-heading"><div><span class="section-kicker">01 / PRECIO Y TENDENCIA</span><h2 id="chart-title">Bitcoin · Dólar estadounidense</h2><p id="chart-subtitle">BINANCE:BTCUSDT · Gráfico provisto por TradingView</p></div><a id="open-chart" class="subtle-link" href="https://www.tradingview.com/chart/?symbol=BINANCE%3ABTCUSDT" target="_blank" rel="noopener noreferrer">Abrir gráfico ↗</a></div>
+<div class="chart-frame"><iframe id="tradingview-chart" title="Gráfico financiero de TradingView" loading="eager" referrerpolicy="origin" src="https://s.tradingview.com/widgetembed/?symbol=BINANCE%3ABTCUSDT&interval=60&hidesidetoolbar=0&symboledit=1&saveimage=0&toolbarbg=07111f&theme=dark&style=1&timezone=America%2FArgentina%2FBuenos_Aires&withdateranges=1&hideideas=1&locale=es"></iframe></div>
+<div class="chart-foot"><span><i class="live-dot"></i> Gráfico externo de TradingView</span><span id="chart-disclaimer">BTCUSDT es un par de mercado cripto, no una cotización bancaria.</span></div>
 </div>
-<div class="calc-results">
-<div class="result-card primary"><small id="result-a-label">Con dólar MEP</small><strong id="result-a">—</strong><span id="result-a-detail">—</span></div>
-<div class="result-card"><small id="result-b-label">Con dólar blue</small><strong id="result-b">—</strong><span id="result-b-detail">—</span></div>
-<div class="difference"><div><small>DIFERENCIA ENTRE AMBAS OPCIONES</small><strong id="result-diff">—</strong></div><span id="result-percent">—</span><button id="copy-summary" type="button">Copiar resumen</button></div>
-</div></div>
-<div class="manual-rates"><div><label for="manual-a">Valor manual A (ARS por USD)</label><input id="manual-a" type="number" min="0" step="0.01" placeholder="Usar cotización seleccionada"></div><div><label for="manual-b">Valor manual B (ARS por USD)</label><input id="manual-b" type="number" min="0" step="0.01" placeholder="Usar cotización seleccionada"></div><button id="clear-manual" type="button">Restablecer valores</button></div>
+<div class="panel news-panel">
+<div class="panel-heading"><div><span class="section-kicker">02 / CONTEXTO DE MERCADO</span><h2>Noticias y contexto</h2><p id="news-description">Cobertura relacionada con Bitcoin y activos digitales.</p></div><span class="news-live">ACTUALIDAD</span></div>
+<div id="news-links" class="news-links">
+<a href="https://news.google.com/search?q=Bitcoin&hl=es-419&gl=AR&ceid=AR%3Aes-419" target="_blank" rel="noopener noreferrer"><span class="news-source">GOOGLE NEWS</span><b>Ver últimas noticias de Bitcoin</b><small>Abrir cobertura actualizada ↗</small></a>
+<a href="https://www.coindesk.com/" target="_blank" rel="noopener noreferrer"><span class="news-source">COINDESK</span><b>Noticias del mercado cripto</b><small>Fuente especializada ↗</small></a>
+<a href="https://www.reuters.com/markets/currencies/" target="_blank" rel="noopener noreferrer"><span class="news-source">REUTERS</span><b>Mercados y monedas globales</b><small>Contexto internacional ↗</small></a>
+</div>
+<p class="news-note">Los enlaces abren fuentes externas. No mostramos titulares inventados ni atribuimos causalidad a un movimiento de precio sin verificarla.</p>
+</div>
+</div>
+<aside class="side-column">
+<section class="panel converter-panel" id="converter">
+<div class="panel-heading"><div><span class="section-kicker">03 / CONVERSOR RÁPIDO</span><h2>Calculá al instante</h2><p>Estimación con referencias disponibles.</p></div><span class="panel-symbol">⇄</span></div>
+<label for="convert-amount">Importe</label><input id="convert-amount" type="number" min="0" step="any" value="100000" inputmode="decimal">
+<div class="convert-pair"><label for="convert-from">De<select id="convert-from"><option value="ARS">ARS · Pesos</option><option value="USD">USD · Dólares</option><option value="BTC">BTC · Bitcoin</option></select></label><button id="swap-currencies" type="button" aria-label="Intercambiar monedas">⇄</button><label for="convert-to">A<select id="convert-to"><option value="USD">USD · Dólares</option><option value="ARS">ARS · Pesos</option><option value="BTC">BTC · Bitcoin</option></select></label></div>
+<div class="convert-result"><span>RESULTADO ESTIMADO</span><strong id="convert-result">—</strong><small id="convert-detail">Esperando cotizaciones</small></div>
+<button id="copy-conversion" class="full-btn" type="button">Copiar conversión</button>
+<p class="calc-disclaimer">No ejecuta operaciones. El tipo de cambio puede variar según entidad, mercado, spread y comisiones.</p>
 </section>
-<section class="engagement" aria-labelledby="engagement-title">
-  <div class="engagement-head"><div><small>ARTECHE CLUB · PROGRESO</small><h2 id="engagement-title">Tu actividad en Arteche</h2><p>Sumá experiencia usando herramientas reales. Tus datos quedan en este navegador.</p></div><div class="score"><span>PUNTOS</span><strong id="ag-puntos">0</strong></div></div>
-  <div class="progress-track"><div id="ag-barra"></div></div>
-  <div class="engagement-foot"><span><strong id="ag-nivel">Explorador</strong> · <span id="ag-next">Próximo nivel: Analista</span></span><span id="ag-actividad">0 días activos</span></div>
-  <p id="ag-toast" class="ag-toast" role="status" aria-live="polite">Completá una conversión para registrar tu primera actividad.</p>
+<section class="panel action-panel">
+<div class="panel-heading"><div><span class="section-kicker">04 / SIGUIENTE PASO</span><h2>Explorar mercados</h2><p>Consultá referencias antes de decidir.</p></div></div>
+<a id="market-action" class="action-btn" href="https://www.coingecko.com/es/monedas/bitcoin#markets" target="_blank" rel="noopener noreferrer">Comparar mercados de BTC ↗</a>
+<a id="secondary-action" class="secondary-action" href="#fx-reference">Ver cotizaciones argentinas ↓</a>
+<p class="calc-disclaimer">Arteche no recibe órdenes, no intermedia operaciones ni custodia fondos. Los enlaces externos no implican recomendación ni garantía.</p>
 </section>
-<section><div class="heading"><div><small>03 / ACTIVOS DIGITALES</small><h2>Cripto mercados</h2></div><span>Precio en USD</span></div><div id="crypto" class="grid"><article class="card">Consultando fuente…</article></div></section><p class="disclaimer">Calculadora: los valores manuales prevalecen sobre las cotizaciones automáticas. Las comisiones se descuentan del resultado estimado. La diferencia compara los resultados de las dos cotizaciones elegidas.</p><p class="disclaimer">Información orientativa. Las cotizaciones dependen de proveedores externos, pueden presentar demoras y no constituyen asesoramiento financiero. Verificá siempre el precio con tu intermediario antes de operar.</p></main><footer>GRUPO ARTECHE · TECHNOLOGY · INTELLIGENCE · BUSINESS SOLUTIONS</footer></div><script src="app.js"></script></body></html>
+</aside>
+</section>
+<section class="panel rates-panel" id="fx-reference">
+<div class="panel-heading"><div><span class="section-kicker">05 / REFERENCIAS ARGENTINAS</span><h2>Cotizaciones del dólar</h2><p>Compra y venta reportadas por el proveedor consultado.</p></div><span class="data-source">DOLARAPI</span></div>
+<div id="fx" class="rates-grid"><div class="loading-card">Consultando cotizaciones…</div></div>
+</section>
+<section class="panel activity-panel">
+<div class="activity-head"><div><span class="section-kicker">ARTECHE CLUB · PROGRESO</span><h2>Tu actividad en la terminal</h2><p>Experiencia por usar herramientas reales. Se guarda en este navegador.</p></div><div class="points"><small>PUNTOS</small><strong id="ag-puntos">0</strong></div></div>
+<div class="progress-track"><div id="ag-barra"></div></div><div class="activity-foot"><b id="ag-nivel">Explorador</b><span id="ag-next">Próximo nivel: Analista</span><span id="ag-actividad">0 días activos</span></div><p id="ag-toast" role="status" aria-live="polite">Completá una conversión para registrar actividad.</p>
+</section>
+<p class="disclaimer">IMPORTANTE: Los gráficos son widgets externos. Las cotizaciones se consultan a proveedores terceros y pueden tener retrasos, errores o indisponibilidad. La información es educativa y referencial; no constituye asesoramiento financiero ni una oferta de compra o venta.</p>
+</main>
+<footer><span>GRUPO ARTECHE</span><span>TECHNOLOGY · INTELLIGENCE · BUSINESS SOLUTIONS</span><span>ARTECHE TERMINAL · BETA</span></footer>
+</div>
+<script src="app.js"></script>
+</body></html>
