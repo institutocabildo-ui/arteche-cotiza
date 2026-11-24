@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#090d12">
+  <meta name="description" content="ARTECHE: cotizaciones, mercados y análisis de bonos en una sola aplicación.">
+  <title>ARTECHE — Finanzas en una sola app</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="ARTECHE inicio"><span class="brand-mark">A/</span><span><b>ARTECHE</b><small>FINANCIAL INTELLIGENCE</small></span></a>
+      <button id="install" class="install" hidden>Instalar app</button>
+    </header>
+
+    <main>
+      <section id="inicio" class="home view active">
+        <div class="eyebrow"><span class="pulse"></span> GRUPO ARTECHE / PLATAFORMA FINANCIERA</div>
+        <h1>Todo el mercado.<br><em>Una sola app.</em></h1>
+        <p class="lead">Cotizaciones, monedas, cripto y análisis de renta fija, reunidos en una experiencia.</p>
+        <div class="hero-actions">
+          <button class="primary" data-open="cotizaciones">Explorar cotizaciones <span>↗</span></button>
+          <button class="secondary" data-open="bonos">Analizar bonos <span>↗</span></button>
+        </div>
+        <div class="module-grid">
+          <button class="module-card" data-open="cotizaciones"><span class="module-index">01 / MERCADOS</span><strong>Cotizaciones</strong><span>Dólar · Divisas · Bitcoin · Noticias</span><b class="arrow">↗</b></button>
+          <button class="module-card" data-open="bonos"><span class="module-index">02 / RENTA FIJA</span><strong>Bonos</strong><span>TIR · Duration · Flujos · Simulaciones</span><b class="arrow">↗</b></button>
+        </div>
+        <div class="status-card"><span class="status-icon">✳</span><div><b>Prototipo unificado</b><p>Esta primera versión conecta los dos productos existentes. La cuenta, sincronización y notificaciones se activarán en la siguiente etapa.</p></div></div>
+      </section>
+
+      <section id="cotizaciones" class="product-view view">
+        <div class="section-head"><div class="eyebrow">01 / MERCADOS</div><h2>Cotizaciones</h2><p>Terminal de mercados de Grupo Arteche.</p></div>
+        <div class="frame-wrap"><iframe title="ARTECHE Cotiza" src="https://institutocabildo-ui.github.io/arteche-cotiza/" loading="lazy"></iframe></div>
+      </section>
+
+      <section id="bonos" class="product-view view">
+        <div class="section-head"><div class="eyebrow">02 / RENTA FIJA</div><h2>Bonos</h2><p>Análisis de rendimiento, duration y flujos.</p></div>
+        <div class="frame-wrap"><iframe title="ARTECHE Bonos" src="https://institutocabildo-ui.github.io/arteche-bonos/" loading="lazy"></iframe></div>
+      </section>
+
+      <section id="perfil" class="profile view">
+        <div class="eyebrow">CUENTA / PREFERENCIAS</div><h2>Tu espacio Arteche.</h2>
+        <div class="status-card"><span class="status-icon">◎</span><div><b>Inicio de sesión con Google</b><p>Preparado para integrar Firebase Authentication. Requiere crear el proyecto Firebase, habilitar Google y configurar los dominios autorizados.</p><span class="tag">PENDIENTE DE CONFIGURACIÓN</span></div></div>
+        <div class="status-card"><span class="status-icon">⌁</span><div><b>Notificaciones push</b><p>La interfaz está prevista; el envío real requiere Firebase Cloud Messaging y un servicio seguro que gestione las alertas.</p><span class="tag">PENDIENTE DE BACKEND</span></div></div>
+        <div class="status-card"><span class="status-icon">↗</span><div><b>Sincronización</b><p>Favoritos, alertas y preferencias se guardarán en una cuenta para compartirlas entre dispositivos.</p><span class="tag">SIGUIENTE ETAPA</span></div></div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navegación principal">
+      <button class="nav-item active" data-view="inicio"><span>⌂</span>Inicio</button>
+      <button class="nav-item" data-view="cotizaciones"><span>⌁</span>Mercados</button>
+      <button class="nav-item" data-view="bonos"><span>▤</span>Bonos</button>
+      <button class="nav-item" data-view="perfil"><span>◎</span>Perfil</button>
+    </nav>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
