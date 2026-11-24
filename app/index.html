@@ -1,63 +1,16 @@
 <!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#090d12">
-  <meta name="description" content="ARTECHE: cotizaciones, mercados y análisis de bonos en una sola aplicación.">
-  <title>ARTECHE — Finanzas en una sola app</title>
-  <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./app.css">
-</head>
-<body>
-  <div class="app-shell">
-    <header class="topbar">
-      <a class="brand" href="#inicio" aria-label="ARTECHE inicio"><span class="brand-mark">A/</span><span><b>ARTECHE</b><small>FINANCIAL INTELLIGENCE</small></span></a>
-      <button id="install" class="install" hidden>Instalar app</button>
-    </header>
-
-    <main>
-      <section id="inicio" class="home view active">
-        <div class="eyebrow"><span class="pulse"></span> GRUPO ARTECHE / PLATAFORMA FINANCIERA</div>
-        <h1>Todo el mercado.<br><em>Una sola app.</em></h1>
-        <p class="lead">Cotizaciones, monedas, cripto y análisis de renta fija, reunidos en una experiencia.</p>
-        <div class="hero-actions">
-          <button class="primary" data-open="cotizaciones">Explorar cotizaciones <span>↗</span></button>
-          <button class="secondary" data-open="bonos">Analizar bonos <span>↗</span></button>
-        </div>
-        <div class="module-grid">
-          <button class="module-card" data-open="cotizaciones"><span class="module-index">01 / MERCADOS</span><strong>Cotizaciones</strong><span>Dólar · Divisas · Bitcoin · Noticias</span><b class="arrow">↗</b></button>
-          <button class="module-card" data-open="bonos"><span class="module-index">02 / RENTA FIJA</span><strong>Bonos</strong><span>TIR · Duration · Flujos · Simulaciones</span><b class="arrow">↗</b></button>
-        </div>
-        <div class="status-card"><span class="status-icon">✳</span><div><b>Prototipo unificado</b><p>Esta primera versión conecta los dos productos existentes. La cuenta, sincronización y notificaciones se activarán en la siguiente etapa.</p></div></div>
-      </section>
-
-      <section id="cotizaciones" class="product-view view">
-        <div class="section-head"><div class="eyebrow">01 / MERCADOS</div><h2>Cotizaciones</h2><p>Terminal de mercados de Grupo Arteche.</p></div>
-        <div class="frame-wrap"><iframe title="ARTECHE Cotiza" src="https://institutocabildo-ui.github.io/arteche-cotiza/" loading="lazy"></iframe></div>
-      </section>
-
-      <section id="bonos" class="product-view view">
-        <div class="section-head"><div class="eyebrow">02 / RENTA FIJA</div><h2>Bonos</h2><p>Análisis de rendimiento, duration y flujos.</p></div>
-        <div class="frame-wrap"><iframe title="ARTECHE Bonos" src="https://institutocabildo-ui.github.io/arteche-bonos/" loading="lazy"></iframe></div>
-      </section>
-
-      <section id="perfil" class="profile view">
-        <div class="eyebrow">CUENTA / PREFERENCIAS</div><h2>Tu espacio Arteche.</h2>
-        <div class="status-card"><span class="status-icon">◎</span><div><b>Inicio de sesión con Google</b><p>Preparado para integrar Firebase Authentication. Requiere crear el proyecto Firebase, habilitar Google y configurar los dominios autorizados.</p><span class="tag">PENDIENTE DE CONFIGURACIÓN</span></div></div>
-        <div class="status-card"><span class="status-icon">⌁</span><div><b>Notificaciones push</b><p>La interfaz está prevista; el envío real requiere Firebase Cloud Messaging y un servicio seguro que gestione las alertas.</p><span class="tag">PENDIENTE DE BACKEND</span></div></div>
-        <div class="status-card"><span class="status-icon">↗</span><div><b>Sincronización</b><p>Favoritos, alertas y preferencias se guardarán en una cuenta para compartirlas entre dispositivos.</p><span class="tag">SIGUIENTE ETAPA</span></div></div>
-      </section>
-    </main>
-
-    <nav class="bottom-nav" aria-label="Navegación principal">
-      <button class="nav-item active" data-view="inicio"><span>⌂</span>Inicio</button>
-      <button class="nav-item" data-view="cotizaciones"><span>⌁</span>Mercados</button>
-      <button class="nav-item" data-view="bonos"><span>▤</span>Bonos</button>
-      <button class="nav-item" data-view="perfil"><span>◎</span>Perfil</button>
-    </nav>
-  </div>
-  <script src="./admob.bundle.js"></script>
-  <script src="./app.js"></script>
-</body>
-</html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#090d12"><title>ARTECHE — Mercados & Finanzas</title><link rel="manifest" href="./manifest.webmanifest"><link rel="stylesheet" href="./app.css"></head>
+<body><div class="app-shell"><header class="topbar"><a class="brand" href="#inicio"><span class="brand-mark">A/</span><span><b>ARTECHE</b><small>MARKETS & FINANCIAL INTELLIGENCE</small></span></a><button id="install" class="install" hidden>Instalar app</button></header><main>
+<section id="inicio" class="home view active"><div class="eyebrow"><span class="pulse"></span> GRUPO ARTECHE / PLATAFORMA FINANCIERA</div><h1>Los mercados.<br><em>En tus manos.</em></h1><p class="lead">Información, herramientas y seguimiento de tus inversiones. Una plataforma gratuita para web y Android.</p><div class="hero-actions"><button class="primary" data-open="mercados">Ver mercados ↗</button><button class="secondary" data-open="cartera">Mi cartera ↗</button></div><div class="module-grid">
+<button class="module-card" data-open="mercados"><span class="module-index">01 / MERCADOS</span><strong>Mercados en vivo</strong><span>Dólar · Divisas · Cripto · Cotizaciones</span></button>
+<button class="module-card" data-open="radar"><span class="module-index">02 / DETECCIÓN</span><strong>ARTECHE Radar</strong><span>Movimientos · Volatilidad · Alertas</span></button>
+<button class="module-card" data-open="cartera"><span class="module-index">03 / SEGUIMIENTO</span><strong>Mi cartera</strong><span>Tenencias · Aportes · Rendimiento</span></button>
+<button class="module-card" data-open="laboratorio"><span class="module-index">04 / HERRAMIENTAS</span><strong>Laboratorio</strong><span>Bonos · TIR · Duration · Simuladores</span></button>
+<button class="module-card" data-open="inteligencia"><span class="module-index">05 / INFORMACIÓN</span><strong>Inteligencia</strong><span>Noticias · Indicadores · Calendario</span></button></div><div class="status-card"><div><b>Una plataforma, cinco módulos</b><p>Acceso gratuito. Se indicarán fuentes y frescura de datos. Las señales serán informativas, no recomendaciones de inversión.</p></div></div></section>
+<section id="mercados" class="product-view view"><div class="section-head"><div class="eyebrow">01 / MERCADOS</div><h2>Mercados en vivo</h2><p>Cotizaciones, divisas, cripto y terminal financiera.</p></div><div class="frame-wrap"><iframe title="ARTECHE Cotiza" src="https://institutocabildo-ui.github.io/arteche-cotiza/" loading="lazy"></iframe></div></section>
+<section id="radar" class="product-view view"><div class="section-head"><div class="eyebrow">02 / DETECCIÓN</div><h2>ARTECHE Radar</h2><p>Movimientos relevantes en activos y mercados.</p></div><div class="feature-panel"><span class="tag">EN CONSTRUCCIÓN</span><h3>Señales explicables, no ruido.</h3><p>Se integrarán variaciones por período, volumen y volatilidad, con umbrales visibles, fuente y hora. No se mostrarán señales inventadas.</p></div></section>
+<section id="cartera" class="product-view view"><div class="section-head"><div class="eyebrow">03 / SEGUIMIENTO</div><h2>Mi cartera</h2><p>Registro local de inversiones en este dispositivo.</p></div><div class="portfolio-summary"><div><small>CAPITAL REGISTRADO</small><strong id="portfolio-total">$ 0,00</strong></div><div><small>MOVIMIENTOS</small><strong id="portfolio-count">0</strong></div></div><form id="trade-form" class="trade-form"><label>Activo<input id="trade-asset" maxlength="24" placeholder="BTC, AL30, AAPL" required></label><div class="form-row"><label>Tipo<select id="trade-type"><option value="buy">Compra / aporte</option><option value="sell">Venta / retiro</option></select></label><label>Moneda<select id="trade-currency"><option>ARS</option><option>USD</option><option>USDT</option></select></label></div><div class="form-row"><label>Cantidad<input id="trade-quantity" type="number" min="0.00000001" step="any" required></label><label>Precio unitario<input id="trade-price" type="number" min="0" step="any" required></label></div><button class="primary" type="submit">Registrar movimiento</button></form><div class="section-head compact"><h3>Historial</h3><p id="portfolio-empty">Todavía no registraste movimientos.</p></div><div id="trade-list" class="trade-list"></div><p class="fine-print">Registro local, no conectado a un broker. No es una valuación de mercado ni rendimiento actualizado.</p></section>
+<section id="laboratorio" class="product-view view"><div class="section-head"><div class="eyebrow">04 / HERRAMIENTAS</div><h2>Laboratorio financiero</h2><p>Modelos, cálculos y simulaciones.</p></div><div class="frame-wrap"><iframe title="ARTECHE Bonos" src="https://institutocabildo-ui.github.io/arteche-bonos/" loading="lazy"></iframe></div></section>
+<section id="inteligencia" class="product-view view"><div class="section-head"><div class="eyebrow">05 / INFORMACIÓN</div><h2>Inteligencia económica</h2><p>Noticias, indicadores y agenda económica.</p></div><div class="feature-panel"><span class="tag">EN CONSTRUCCIÓN</span><h3>Información con contexto.</h3><p>Noticias en idioma original, editor y enlace de origen, con opción de traducir al idioma de interfaz. Calendario e indicadores con valores previos, consenso y dato publicado cuando estén disponibles.</p></div></section>
+<section id="perfil" class="profile view"><div class="eyebrow">CUENTA / PREFERENCIAS</div><h2>Tu espacio Arteche.</h2><div class="status-card"><div><b>Cuenta y sincronización</b><p>Google login, sincronización y notificaciones push requieren backend seguro y configuración de Firebase.</p><span class="tag">PENDIENTE</span></div></div></section></main>
+<nav class="bottom-nav" aria-label="Navegación principal"><button class="nav-item active" data-view="inicio">Inicio</button><button class="nav-item" data-view="mercados">Mercados</button><button class="nav-item" data-view="radar">Radar</button><button class="nav-item" data-view="cartera">Cartera</button><button class="nav-item" data-view="laboratorio">Lab</button><button class="nav-item" data-view="inteligencia">Info</button></nav></div><script src="./admob.bundle.js"></script><script src="./app.js"></script></body></html>
