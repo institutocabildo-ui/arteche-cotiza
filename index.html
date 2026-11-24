@@ -1,16 +1,50 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#081321"><meta name="description" content="Consultá el dólar oficial, blue, MEP, CCL y cotizaciones de Bitcoin y Ethereum. Compará tipos de cambio y calculá diferencias en pesos con Arteche Cotiza, de Grupo Arteche.">
-<meta name="keywords" content="Arteche Cotiza, cotización dólar hoy, dólar blue, dólar MEP, dólar CCL, calculadora dólar, diferencia dólar pesos, Bitcoin, Ethereum">
-<meta name="author" content="Grupo Arteche">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://institutocabildo-ui.github.io/arteche-cotiza/">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Grupo Arteche">
-<meta property="og:title" content="Arteche Cotiza | Dólar, mercados y calculadora">
-<meta property="og:description" content="Cotizaciones argentinas, cripto y calculadora para comparar cuánto recibís o pagás en pesos.">
-<meta property="og:url" content="https://institutocabildo-ui.github.io/arteche-cotiza/">
-<meta name="twitter:card" content="summary">
-<title>Arteche Cotiza | Dólar, cotizaciones y calculadora en pesos</title>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Arteche Cotiza","url":"https://institutocabildo-ui.github.io/arteche-cotiza/","applicationCategory":"FinanceApplication","operatingSystem":"Any","description":"Cotizaciones del dólar argentino y activos digitales, con calculadora para comparar tipos de cambio y diferencias en pesos.","publisher":{"@type":"Organization","name":"Grupo Arteche"}}</script><link rel="stylesheet" href="styles.css"></head><body><div class="shell"><header><a class="brand" href="#"><span class="mark">A/</span><span><b>GRUPO ARTECHE</b><small>MARKET INTELLIGENCE</small></span></a><button id="refresh">Actualizar ↻</button></header><main><section class="hero"><p class="eyebrow">MERCADOS · ARGENTINA</p><h1>El mercado,<br><em>en perspectiva.</em></h1><p>Referencias de divisas y activos digitales con fuentes y horarios visibles.</p><div class="stamp">Última consulta: <strong id="updated">—</strong> · <span id="status">Iniciando</span></div></section><section><div class="heading"><div><small>01 / TIPO DE CAMBIO</small><h2>Dólares argentinos</h2></div><span>ARS por USD</span></div><div id="fx" class="grid"><article class="card">Consultando fuente…</article></div></section><section class="calculator" id="calculadora">
+<!doctype html><html lang="es"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#081321" />
+
+  <title>Arteche Cotiza | Cotización del dólar y divisas en tiempo real — Grupo Arteche</title>
+  <meta name="description" content="Consultá la cotización actualizada del dólar y las principales monedas en Argentina. Una herramienta web simple, rápida y gratuita desarrollada por Grupo Arteche." />
+  <meta name="keywords" content="Arteche Cotiza, cotización dólar hoy, dólar blue, dólar MEP, dólar CCL, dólar oficial, calculadora dólar, cotización divisas Argentina, Bitcoin, Ethereum" />
+  <meta name="author" content="Grupo Arteche" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://institutocabildo-ui.github.io/arteche-cotiza/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Grupo Arteche" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:title" content="Arteche Cotiza — Dólar y monedas al instante" />
+  <meta property="og:description" content="Cotizaciones actualizadas del dólar y divisas en un solo lugar. Producto de Grupo Arteche." />
+  <meta property="og:url" content="https://institutocabildo-ui.github.io/arteche-cotiza/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Arteche Cotiza — Dólar y monedas al instante" />
+  <meta name="twitter:description" content="Consultá cotizaciones del dólar y divisas en Argentina con la calculadora de Grupo Arteche." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Arteche Cotiza",
+    "url": "https://institutocabildo-ui.github.io/arteche-cotiza/",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "inLanguage": "es-AR",
+    "description": "Consultá la cotización actualizada del dólar y las principales monedas en Argentina. Herramienta web gratuita de Grupo Arteche.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Grupo Arteche"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "ARS"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head><body><div class="shell"><header><a class="brand" href="#"><span class="mark">A/</span><span><b>GRUPO ARTECHE</b><small>MARKET INTELLIGENCE</small></span></a><button id="refresh">Actualizar ↻</button></header><main><section class="hero"><p class="eyebrow">MERCADOS · ARGENTINA</p><h1>El mercado,<br><em>en perspectiva.</em></h1><p>Referencias de divisas y activos digitales con fuentes y horarios visibles.</p><div class="stamp">Última consulta: <strong id="updated">—</strong> · <span id="status">Iniciando</span></div></section><section><div class="heading"><div><small>01 / TIPO DE CAMBIO</small><h2>Dólares argentinos</h2></div><span>ARS por USD</span></div><div id="fx" class="grid"><article class="card">Consultando fuente…</article></div></section><section class="calculator" id="calculadora">
 <div class="heading"><div><small>02 / CALCULADORA DE CAMBIO</small><h2>¿Cuántos pesos necesitás?</h2></div><span>Conversión y comparación</span></div>
 <div class="calc-layout">
 <div class="calc-controls">
