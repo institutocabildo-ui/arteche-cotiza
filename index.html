@@ -3,62 +3,27 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#07111f">
-<title>ARTECHE Wallet | Tu cuenta multidivisa</title>
-<meta name="description" content="ARTECHE Wallet: una experiencia multidivisa para organizar saldos, convertir monedas y consultar movimientos.">
+<title>ARTECHE Financial Intelligence | Divisas, bonos y mercados</title>
+<meta name="description" content="ARTECHE Financial Intelligence: calculadoras multidivisa, cotizaciones, bonos, activos y análisis de mercados.">
 <meta name="keywords" content="ARTECHE Terminal, dólar hoy, dólar blue, dólar MEP, Bitcoin precio, mercados, TradingView, conversor dólar">
 <meta name="author" content="Santiago Barboza"><meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://institutocabildo-ui.github.io/arteche-cotiza/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Grupo Arteche"><meta property="og:locale" content="es_AR">
-<meta property="og:title" content="ARTECHE Wallet — Tu cuenta multidivisa"><meta property="og:description" content="Organizá tus monedas, consultá saldos y convertí divisas desde una sola billetera.">
+<meta property="og:title" content="ARTECHE Financial Intelligence — Calculá y analizá mercados"><meta property="og:description" content="Calculá divisas, analizá bonos y compará activos con herramientas financieras.">
 <meta property="og:url" content="https://institutocabildo-ui.github.io/arteche-cotiza/"><meta name="twitter:card" content="summary">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ARTECHE Terminal","url":"https://institutocabildo-ui.github.io/arteche-cotiza/","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"es-AR","publisher":{"@type":"Organization","name":"Grupo Arteche"}}</script>
-<link rel="preconnect" href="https://s.tradingview.com"><link rel="preconnect" href="https://dolarapi.com"><link rel="stylesheet" href="styles.css?v=wallet-home-20261125-2">
+<link rel="preconnect" href="https://s.tradingview.com"><link rel="preconnect" href="https://dolarapi.com"><link rel="stylesheet" href="styles.css?v=financial-intelligence-20261125-1">
 </head>
 <body>
 <div class="terminal-shell">
 <header class="topbar">
-<a class="brand" href="#"><span class="brand-mark">A/</span><span><b>ARTECHE</b><small>WALLET MULTIDIVISA</small></span></a>
+<a class="brand" href="#"><span class="brand-mark">A/</span><span><b>ARTECHE</b><small>FINANCIAL INTELLIGENCE</small></span></a>
 <div class="top-meta"><span class="live-dot"></span><span id="connection-status">Conectando fuentes</span><span class="top-divider">|</span><span id="clock">--:--:--</span></div><div class="account-area"><span class="free-pill">GRATIS · BETA</span><button id="google-signin" class="google-btn" type="button"><span class="google-g">G</span> Entrar con Google</button><div id="account-user" class="account-user" hidden><img id="account-avatar" alt=""><span id="account-name"></span><button id="google-signout" type="button">Salir</button></div></div>
 <button id="refresh" class="refresh-btn" type="button">↻ <span>Actualizar</span></button>
 </header>
 <main>
-<nav class="arteche-module-nav wallet-first-nav" aria-label="Navegación principal"><a class="selected" href="#wallet">Mi billetera</a><a href="#converter">Convertir</a><a href="#wallet-actions">Ingresar / retirar</a><a href="#market-explorer">Explorar</a></nav>
-<section class="wallet-home" id="wallet">
- <div class="wallet-home-head">
-  <div><span class="section-kicker">ARTECHE WALLET · CUENTA MULTIDIVISA</span><h1>Tu billetera. <em>Tu dinero.</em></h1><p>Administrá tus saldos, monedas y movimientos desde una cuenta multidivisa.</p></div>
-  <span class="demo-flag">ENTORNO DE DEMOSTRACIÓN</span>
- </div>
- <div class="wallet-overview">
-  <div class="wallet-total">
-   <div class="wallet-total-top"><small>SALDO TOTAL ESTIMADO</small><div class="wallet-total-controls"><button type="button" id="wallet-toggle-visibility" aria-pressed="false">◉ Ocultar saldo</button><span class="wallet-status"><i></i> Cuenta demo</span></div></div>
-   <strong id="wallet-total-usd">USD —</strong>
-   <span>Valor orientativo consolidado en dólares · no representa fondos reales.</span>
-   <div class="wallet-primary-actions">
-    <a href="#wallet-actions" class="wallet-primary-action"><b>＋</b><span>Ingresar</span></a>
-    <a href="#wallet-actions" class="wallet-primary-action"><b>↗</b><span>Retirar</span></a>
-    <a href="#wallet-actions" class="wallet-primary-action"><b>⇄</b><span>Convertir</span></a>
-    <a href="#wallet-ledger-section" class="wallet-primary-action"><b>⌁</b><span>Movimientos</span></a>
-   </div>
-  </div>
-  <aside class="wallet-side-note"><span class="wallet-side-icon">A/</span><b>Tu cuenta, en múltiples monedas.</b><p>Mantené cada saldo en su divisa. No convertimos tus tenencias automáticamente.</p><div><span>ARS</span><span>USD</span><span>EUR</span><span>CNY</span><span>BTC</span><span>USDT</span></div></aside>
- </div>
- <div class="wallet-section-heading"><div><span class="section-kicker">TUS CUENTAS</span><h2>Saldos por moneda</h2></div><span class="wallet-muted-label">10 divisas disponibles en demo</span></div>
- <div id="wallet-balances" class="wallet-balances"></div>
- <div class="wallet-tools" id="wallet-actions">
-  <div class="wallet-tool-card"><div class="wallet-tool-heading"><span class="wallet-tool-icon">＋</span><div><h3>Ingresar o retirar</h3><p>Registrá movimientos de prueba en tu cuenta local.</p></div></div>
-   <label>Moneda<select id="wallet-currency"></select></label><label>Importe<input id="wallet-amount" type="number" min="0.01" step="any" placeholder="Ingresá un importe"></label>
-   <div class="wallet-buttons"><button id="wallet-deposit" type="button" class="full-btn">＋ Ingresar demo</button><button id="wallet-withdraw" type="button" class="secondary-btn">Retirar demo</button></div>
-  </div>
-  <div class="wallet-tool-card"><div class="wallet-tool-heading"><span class="wallet-tool-icon">⇄</span><div><h3>Convertir monedas</h3><p>Pasá de una divisa a otra con referencias disponibles.</p></div></div>
-   <div class="wallet-convert-row"><label>De<select id="wallet-from"></select></label><label>A<select id="wallet-to"></select></label></div>
-   <label>Importe<input id="wallet-convert-amount" type="number" min="0.01" step="any" placeholder="Ingresá un importe"></label>
-   <button id="wallet-convert" type="button" class="full-btn">Convertir demo</button><small id="wallet-message" role="status">Las operaciones son simuladas y quedan en este dispositivo.</small>
-  </div>
- </div>
- <div class="wallet-ledger-panel" id="wallet-ledger-section"><div class="wallet-section-heading"><div><span class="section-kicker">ACTIVIDAD DE LA CUENTA</span><h2>Movimientos recientes</h2></div><div class="wallet-ledger-controls"><label>Filtrar<select id="wallet-ledger-filter"><option value="all">Todos</option><option value="USD">USD</option><option value="ARS">ARS</option><option value="EUR">EUR</option><option value="CNY">CNY</option><option value="BTC">BTC</option><option value="USDT">USDT</option></select></label><button type="button" id="wallet-export-ledger">Exportar CSV ↓</button></div></div><div id="wallet-ledger" class="module-table-wrap"><p class="module-status">No hay movimientos.</p></div></div>
- <div class="wallet-demo-disclaimer"><b>Modo demostración.</b> Los saldos iniciales y las operaciones se guardan únicamente en este navegador. ARTECHE todavía no recibe depósitos, no ejecuta transferencias reales y no está conectado a bancos, Mercado Pago ni exchanges.</div>
-</section>
-<section class="ticker-ribbon" aria-label="Resumen de mercados"><div class="ticker-brand"><span class="live-dot"></span> PULSO DE MERCADO</div><div class="ticker-item"><small>BITCOIN / USD</small><strong id="ticker-btc">—</strong></div><div class="ticker-item"><small>DÓLAR BLUE</small><strong id="ticker-blue">—</strong></div><div class="ticker-item"><small>DÓLAR MEP</small><strong id="ticker-mep">—</strong></div><div class="ticker-item"><small>DÓLAR CCL</small><strong id="ticker-ccl">—</strong></div><a href="#converter" class="ticker-cta">CONVERTIR ↘</a></section>
+<nav class="arteche-module-nav financial-nav" aria-label="Navegación principal"><a class="selected" href="#converter">Divisas</a><a href="#fx-reference">Cotizaciones</a><a href="#global-fx">Monedas globales</a><a href="#bonds">Bonos</a><a href="#portfolio">Activos</a><a href="#intelligence">Intelligence</a></nav>
+<section class="financial-hero"><div><span class="section-kicker">GRUPO ARTECHE · FINANCIAL INTELLIGENCE</span><h1>Todo el mercado.<br><em>Todos tus cálculos.</em></h1><p>Divisas, bonos, activos y herramientas para analizar operaciones financieras desde un solo lugar.</p></div><div class="financial-hero-mark"><strong>A/</strong><span>FINANCIAL<br>INTELLIGENCE</span></div></section>
 <section class="panel converter-panel" id="converter">
 <div class="panel-heading"><div><span class="section-kicker">03 / CONVERSOR RÁPIDO</span><h2>Calculá al instante</h2><p>Estimación con referencias disponibles.</p></div><span class="panel-symbol">⇄</span></div>
 <label for="convert-amount">Importe</label><input id="convert-amount" type="number" min="0" step="any" value="100000" inputmode="decimal">
@@ -67,6 +32,10 @@
 <button id="copy-conversion" class="full-btn" type="button">Copiar conversión</button>
 <p class="calc-disclaimer">No ejecuta operaciones. El tipo de cambio puede variar según entidad, mercado, spread y comisiones.</p>
 </section>
+
+
+<section class="ticker-ribbon" aria-label="Resumen de mercados"><div class="ticker-brand"><span class="live-dot"></span> PULSO DE MERCADO</div><div class="ticker-item"><small>BITCOIN / USD</small><strong id="ticker-btc">—</strong></div><div class="ticker-item"><small>DÓLAR BLUE</small><strong id="ticker-blue">—</strong></div><div class="ticker-item"><small>DÓLAR MEP</small><strong id="ticker-mep">—</strong></div><div class="ticker-item"><small>DÓLAR CCL</small><strong id="ticker-ccl">—</strong></div><a href="#converter" class="ticker-cta">CONVERTIR ↘</a></section>
+
 
 <section class="market-heading" id="market-explorer">
 <div><div class="eyebrow">GRUPO ARTECHE / EXPLORAR MERCADOS <span class="hero-live">● DATOS DE MERCADO EN VIVO</span></div><h1>Tu dinero,<br><em>en varias monedas.</em></h1><p>Consultá cotizaciones y referencias cuando necesites tomar decisiones.</p></div>
@@ -147,7 +116,7 @@
 <section class="panel global-fx-panel" id="global-fx"><div class="panel-heading"><div><span class="section-kicker">09 / MERCADO DE DIVISAS GLOBAL</span><h2>Monedas del mundo</h2><p>Referencias internacionales diarias frente al USD. No equivalen a cotizaciones bancarias locales.</p></div><span class="data-source" id="fx-global-updated">FRANKFURTER / ECB</span></div><div id="global-fx-grid" class="global-fx-grid"><div class="loading-card">Consultando divisas…</div></div><p class="calc-disclaimer">Fuente internacional de referencia. Para conversiones con ARS se utiliza el dólar blue de compra/venta disponible en la terminal; el resultado es estimativo y no una oferta de cambio.</p></section>
 <section class="panel crypto-market-panel" id="crypto-markets"><div class="panel-heading"><div><span class="section-kicker">10 / CRIPTOACTIVOS</span><h2>Mercado cripto · Top 250</h2><p>Listado por capitalización de mercado, con precio, variación 24 h y volumen.</p></div><span class="data-source" id="crypto-updated">POWERED BY COINGECKO</span></div><div class="crypto-tools"><input id="crypto-search" type="search" placeholder="Buscar moneda, símbolo… (ej. Solana, XRP)" aria-label="Buscar criptoactivo"><span id="crypto-count">Cargando activos…</span></div><div class="crypto-table-wrap"><table class="crypto-table"><thead><tr><th>#</th><th>Activo</th><th>Precio USD</th><th>24 h</th><th>Capitalización</th><th>Volumen 24 h</th></tr></thead><tbody id="crypto-rows"><tr><td colspan="6">Consultando mercado cripto…</td></tr></tbody></table></div><p class="calc-disclaimer">Listado de hasta 250 criptoactivos principales por capitalización. Los tokens de baja liquidez o no indexados pueden no aparecer. Los datos dependen de disponibilidad y límites de CoinGecko.</p></section>
 
-<section class="arteche-suite-intro"><div><span class="section-kicker">ARTECHE · SERVICIOS FINANCIEROS</span><h2>Más herramientas para tu dinero.</h2><p>Mercados, bonos, activos y análisis quedan como herramientas complementarias de la billetera.</p></div><span class="demo-flag">EXPERIENCIA EN DESARROLLO</span></section>
+<section class="arteche-suite-intro"><div><span class="section-kicker">ARTECHE · FINANCIAL TOOLS</span><h2>Herramientas para analizar mejor.</h2><p>Bonos, cartera, inteligencia y monitoreo: módulos de análisis, no cuentas ni servicios de custodia.</p></div><span class="demo-flag">DATOS Y CÁLCULOS</span></section>
 <section class="panel bonds-panel" id="bonds">
  <div class="panel-heading"><div><span class="section-kicker">13 / RENTA FIJA</span><h2>Arteche Bonos</h2><p>Calculadora de rendimiento para bonos soberanos y corporativos. Ingresá datos verificados del instrumento.</p></div><span class="data-source">CÁLCULO LOCAL</span></div>
  <div class="bond-grid">
@@ -185,7 +154,7 @@
 <div class="activity-head"><div><span class="section-kicker">ARTECHE CLUB · PROGRESO</span><h2>Tu actividad en la terminal</h2><p id="activity-account-note">Iniciá sesión con Google para identificar tu perfil. Por ahora, los puntos se guardan en este dispositivo.</p></div><div class="points"><small>PUNTOS</small><strong id="ag-puntos">0</strong></div></div>
 <div class="progress-track"><div id="ag-barra"></div></div><div class="activity-foot"><b id="ag-nivel">Explorador</b><span id="ag-next">Próximo nivel: Analista</span><span id="ag-actividad">0 días activos</span></div><p id="ag-toast" role="status" aria-live="polite">Completá una conversión para registrar actividad.</p>
 </section>
-<p class="disclaimer">IMPORTANTE: Los gráficos son widgets externos. Las cotizaciones se consultan a proveedores terceros y pueden tener retrasos, errores o indisponibilidad. La información es educativa y referencial; no constituye asesoramiento financiero ni una oferta de compra o venta.</p>
+<p class="disclaimer">ARTECHE es una plataforma informativa y de cálculo. No recibe depósitos, no custodia fondos ni ejecuta operaciones. Las cotizaciones dependen de proveedores externos y pueden tener demoras o errores. Los cálculos son orientativos y no constituyen asesoramiento financiero.</p>
 </main>
 <footer><span>ARTECHE</span><span>UNA PLATAFORMA DE SANTIAGO BARBOSA</span><span>GRATIS · BETA</span></footer>
 </div>
