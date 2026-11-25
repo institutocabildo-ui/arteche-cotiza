@@ -183,3 +183,17 @@ footer{border-color:var(--line);padding:24px 0 30px}
 .intelligence-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.intelligence-grid article{padding:16px;border:1px solid var(--line);border-radius:10px;background:rgba(9,20,29,.8)}.intelligence-grid article>span{display:block;color:var(--mint);font-size:8px;letter-spacing:.14em}.intelligence-grid article>strong{display:block;font-size:18px;margin:9px 0}.intelligence-grid article>p{color:var(--muted);font-size:10px;line-height:1.5;margin:0}
 @media(max-width:760px){.arteche-suite-intro{align-items:flex-start;flex-direction:column}.bond-grid,.asset-entry-grid,.profit-grid{grid-template-columns:1fr 1fr}.wallet-balances{grid-template-columns:repeat(3,minmax(0,1fr))}.wallet-actions-grid{grid-template-columns:1fr}}
 @media(max-width:480px){.arteche-module-nav{position:static;gap:6px}.arteche-module-nav a{font-size:9px;padding:7px 10px}.bond-grid,.asset-entry-grid,.profit-grid,.bond-results,.intelligence-grid{grid-template-columns:1fr}.wallet-balances{grid-template-columns:repeat(2,minmax(0,1fr))}.wallet-total strong{font-size:23px}}
+
+/* Wallet-first product direction */
+.wallet-first-nav{position:sticky;top:0;z-index:30;background:rgba(5,13,21,.96);backdrop-filter:blur(16px);padding:12px 0;border-bottom:1px solid var(--line)}
+.wallet-first-nav a:first-child{border-color:rgba(105,226,181,.55);color:var(--mint)}
+.wallet-panel{margin:16px 0 24px;border-color:rgba(105,226,181,.25);box-shadow:0 18px 55px rgba(0,0,0,.2)}
+.wallet-panel>.panel-heading h2{font-size:clamp(25px,4vw,36px);letter-spacing:-.045em}
+.wallet-total{padding:25px 22px;min-height:142px;justify-content:center;background:radial-gradient(ellipse at 85% 20%,rgba(48,130,111,.2),transparent 55%),linear-gradient(115deg,#102a2b,#0b1a27 72%);border-color:rgba(105,226,181,.34)}
+.wallet-total strong{font-size:clamp(32px,5vw,44px);letter-spacing:-.04em}
+.wallet-balances{grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.wallet-balance{padding:15px;min-height:90px;transition:border-color .2s,transform .2s}.wallet-balance:hover{border-color:rgba(105,226,181,.45);transform:translateY(-2px)}
+.wallet-actions-grid>div{background:rgba(13,28,39,.78);padding:18px}.wallet-actions-grid h3{font-size:14px}
+.wallet-panel .module-status{font-size:10px}
+#market-explorer{padding-top:20px}
+@media(max-width:760px){.wallet-balances{grid-template-columns:repeat(2,minmax(0,1fr))}.wallet-first-nav{top:0;overflow-x:auto;flex-wrap:nowrap}.wallet-first-nav a{white-space:nowrap}.wallet-total{min-height:125px}}

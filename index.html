@@ -22,7 +22,18 @@
 <button id="refresh" class="refresh-btn" type="button">↻ <span>Actualizar</span></button>
 </header>
 <main>
-<nav class="arteche-module-nav" aria-label="Módulos Arteche"><a href="#converter">Divisas</a><a href="#bonds">Bonos</a><a href="#portfolio">Activos</a><a href="#wallet">Wallet</a><a href="#intelligence">Intelligence</a><a href="#profit-lock">Profit Lock</a></nav>
+<nav class="arteche-module-nav wallet-first-nav" aria-label="Navegación principal"><a class="selected" href="#wallet">Mi billetera</a><a href="#converter">Convertir</a><a href="#wallet-actions">Ingresar / retirar</a><a href="#market-explorer">Explorar</a></nav>
+<section class="panel wallet-panel" id="wallet">
+ <div class="panel-heading"><div><span class="section-kicker">ARTECHE WALLET · CUENTA MULTIDIVISA</span><h2>Tu dinero, en un solo lugar.</h2><p>Una billetera para mantener, convertir y organizar distintas monedas sin conversión automática.</p></div><span class="demo-flag">CUENTA DEMO</span></div>
+ <div class="wallet-total"><small>SALDO TOTAL ESTIMADO · DEMOSTRACIÓN</small><strong id="wallet-total-usd">USD 0.00</strong><span>Estimación con referencias disponibles; no es dinero real ni saldo bancario.</span></div>
+ <div id="wallet-balances" class="wallet-balances"></div>
+ <div class="wallet-actions-grid" id="wallet-actions">
+  <div><h3>Ingreso / retiro simulado</h3><label>Moneda<select id="wallet-currency"></select></label><label>Importe<input id="wallet-amount" type="number" min="0.01" step="any" placeholder="Importe"></label><div class="wallet-buttons"><button id="wallet-deposit" type="button" class="full-btn">Ingresar demo</button><button id="wallet-withdraw" type="button" class="secondary-btn">Retirar demo</button></div></div>
+  <div><h3>Conversión interna simulada</h3><label>De<select id="wallet-from"></select></label><label>A<select id="wallet-to"></select></label><label>Importe<input id="wallet-convert-amount" type="number" min="0.01" step="any" placeholder="Importe"></label><button id="wallet-convert" type="button" class="full-btn">Convertir demo</button><small id="wallet-message" role="status">Sin movimientos todavía.</small></div>
+ </div>
+ <h3 class="module-subtitle">Últimos movimientos</h3><div id="wallet-ledger" class="module-table-wrap"><p class="module-status">No hay movimientos.</p></div>
+ <div class="module-status">Esta billetera guarda únicamente datos de prueba en este navegador. No recibe depósitos, no mueve fondos y no está conectada a bancos, Mercado Pago ni exchanges.</div>
+</section>
 <section class="ticker-ribbon" aria-label="Resumen de mercados"><div class="ticker-brand"><span class="live-dot"></span> PULSO DE MERCADO</div><div class="ticker-item"><small>BITCOIN / USD</small><strong id="ticker-btc">—</strong></div><div class="ticker-item"><small>DÓLAR BLUE</small><strong id="ticker-blue">—</strong></div><div class="ticker-item"><small>DÓLAR MEP</small><strong id="ticker-mep">—</strong></div><div class="ticker-item"><small>DÓLAR CCL</small><strong id="ticker-ccl">—</strong></div><a href="#converter" class="ticker-cta">CONVERTIR ↘</a></section>
 <section class="panel converter-panel" id="converter">
 <div class="panel-heading"><div><span class="section-kicker">03 / CONVERSOR RÁPIDO</span><h2>Calculá al instante</h2><p>Estimación con referencias disponibles.</p></div><span class="panel-symbol">⇄</span></div>
@@ -33,8 +44,8 @@
 <p class="calc-disclaimer">No ejecuta operaciones. El tipo de cambio puede variar según entidad, mercado, spread y comisiones.</p>
 </section>
 
-<section class="market-heading">
-<div><div class="eyebrow">GRUPO ARTECHE / TERMINAL DE MERCADOS <span class="hero-live">● DATOS DE MERCADO EN VIVO</span></div><h1>El mercado,<br><em>en una sola pantalla.</em></h1><p>Gráficos, referencias y herramientas para entender el movimiento.</p></div>
+<section class="market-heading" id="market-explorer">
+<div><div class="eyebrow">GRUPO ARTECHE / EXPLORAR MERCADOS <span class="hero-live">● DATOS DE MERCADO EN VIVO</span></div><h1>Tu dinero,<br><em>en varias monedas.</em></h1><p>Consultá cotizaciones y referencias cuando necesites tomar decisiones.</p></div>
 <div class="market-date"><span>HORA LOCAL · ARGENTINA</span><strong id="market-date">—</strong><small>Datos sujetos a disponibilidad de proveedores</small></div>
 </section>
 
@@ -112,7 +123,7 @@
 <section class="panel global-fx-panel" id="global-fx"><div class="panel-heading"><div><span class="section-kicker">09 / MERCADO DE DIVISAS GLOBAL</span><h2>Monedas del mundo</h2><p>Referencias internacionales diarias frente al USD. No equivalen a cotizaciones bancarias locales.</p></div><span class="data-source" id="fx-global-updated">FRANKFURTER / ECB</span></div><div id="global-fx-grid" class="global-fx-grid"><div class="loading-card">Consultando divisas…</div></div><p class="calc-disclaimer">Fuente internacional de referencia. Para conversiones con ARS se utiliza el dólar blue de compra/venta disponible en la terminal; el resultado es estimativo y no una oferta de cambio.</p></section>
 <section class="panel crypto-market-panel" id="crypto-markets"><div class="panel-heading"><div><span class="section-kicker">10 / CRIPTOACTIVOS</span><h2>Mercado cripto · Top 250</h2><p>Listado por capitalización de mercado, con precio, variación 24 h y volumen.</p></div><span class="data-source" id="crypto-updated">POWERED BY COINGECKO</span></div><div class="crypto-tools"><input id="crypto-search" type="search" placeholder="Buscar moneda, símbolo… (ej. Solana, XRP)" aria-label="Buscar criptoactivo"><span id="crypto-count">Cargando activos…</span></div><div class="crypto-table-wrap"><table class="crypto-table"><thead><tr><th>#</th><th>Activo</th><th>Precio USD</th><th>24 h</th><th>Capitalización</th><th>Volumen 24 h</th></tr></thead><tbody id="crypto-rows"><tr><td colspan="6">Consultando mercado cripto…</td></tr></tbody></table></div><p class="calc-disclaimer">Listado de hasta 250 criptoactivos principales por capitalización. Los tokens de baja liquidez o no indexados pueden no aparecer. Los datos dependen de disponibilidad y límites de CoinGecko.</p></section>
 
-<section class="arteche-suite-intro"><div><span class="section-kicker">ARTECHE FINANCIAL · SUITE INTEGRADA</span><h2>De la información a la gestión.</h2><p>Una misma terminal para consultar mercados, analizar instrumentos y probar una cartera multidivisa.</p></div><span class="demo-flag">MÓDULOS OPERATIVOS EN MODO DEMO</span></section>
+<section class="arteche-suite-intro"><div><span class="section-kicker">ARTECHE · SERVICIOS FINANCIEROS</span><h2>Más herramientas para tu dinero.</h2><p>Mercados, bonos, activos y análisis quedan como herramientas complementarias de la billetera.</p></div><span class="demo-flag">EXPERIENCIA EN DESARROLLO</span></section>
 <section class="panel bonds-panel" id="bonds">
  <div class="panel-heading"><div><span class="section-kicker">13 / RENTA FIJA</span><h2>Arteche Bonos</h2><p>Calculadora de rendimiento para bonos soberanos y corporativos. Ingresá datos verificados del instrumento.</p></div><span class="data-source">CÁLCULO LOCAL</span></div>
  <div class="bond-grid">
@@ -133,17 +144,7 @@
  <div class="module-table-wrap"><table class="module-table"><thead><tr><th>Activo</th><th>Unidades</th><th>Precio USD</th><th>Valor USD</th><th></th></tr></thead><tbody id="asset-rows"><tr><td colspan="5">Todavía no hay posiciones guardadas.</td></tr></tbody></table></div>
  <div class="module-status">Los valores se calculan con los precios que ingreses; no se conectan automáticamente a un broker o custodio.</div>
 </section>
-<section class="panel wallet-panel" id="wallet">
- <div class="panel-heading"><div><span class="section-kicker">15 / CUENTA MULTIDIVISA</span><h2>Arteche Wallet</h2><p>Saldos separados por moneda: conservar una ganancia en CNY, EUR, USD u otra divisa sin conversión automática.</p></div><span class="demo-flag">DINERO FICTICIO</span></div>
- <div class="wallet-total"><small>PATRIMONIO DEMO EQUIVALENTE</small><strong id="wallet-total-usd">USD 0.00</strong><span>Estimación con referencias disponibles; no es dinero real ni saldo bancario.</span></div>
- <div id="wallet-balances" class="wallet-balances"></div>
- <div class="wallet-actions-grid">
-  <div><h3>Ingreso / retiro simulado</h3><label>Moneda<select id="wallet-currency"></select></label><label>Importe<input id="wallet-amount" type="number" min="0.01" step="any" placeholder="Importe"></label><div class="wallet-buttons"><button id="wallet-deposit" type="button" class="full-btn">Ingresar demo</button><button id="wallet-withdraw" type="button" class="secondary-btn">Retirar demo</button></div></div>
-  <div><h3>Conversión interna simulada</h3><label>De<select id="wallet-from"></select></label><label>A<select id="wallet-to"></select></label><label>Importe<input id="wallet-convert-amount" type="number" min="0.01" step="any" placeholder="Importe"></label><button id="wallet-convert" type="button" class="full-btn">Convertir demo</button><small id="wallet-message" role="status">Sin movimientos todavía.</small></div>
- </div>
- <h3 class="module-subtitle">Últimos movimientos</h3><div id="wallet-ledger" class="module-table-wrap"><p class="module-status">No hay movimientos.</p></div>
- <div class="module-status">Esta billetera guarda únicamente datos de prueba en este navegador. No recibe depósitos, no mueve fondos y no está conectada a bancos, Mercado Pago ni exchanges.</div>
-</section>
+
 <section class="panel intelligence-panel" id="intelligence">
  <div class="panel-heading"><div><span class="section-kicker">16 / ANÁLISIS ASISTIDO</span><h2>Arteche Intelligence</h2><p>Panel de observación con dos horizontes independientes: intradiario y multidiario.</p></div><span class="data-source">MODO OBSERVACIÓN</span></div>
  <div class="intelligence-grid"><article><span>01 · INTRADIARIO</span><strong id="intel-intraday">Esperando datos</strong><p id="intel-intraday-note">Analiza variación diaria disponible y advierte si faltan datos.</p></article><article><span>02 · MULTIDIARIO</span><strong id="intel-swing">Esperando datos</strong><p id="intel-swing-note">Requiere series históricas y validación antes de generar señales.</p></article></div>
