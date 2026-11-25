@@ -249,3 +249,15 @@ footer{border-color:var(--line);padding:24px 0 30px}
 .wallet-demo-disclaimer b{color:#f0d59e}
 @media(max-width:850px){.wallet-overview{grid-template-columns:1fr}.wallet-side-note{display:none}.wallet-home .wallet-balances{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:560px){.wallet-home{padding:15px;border-radius:16px}.wallet-home-head{flex-direction:column;gap:12px}.wallet-home-head h1{font-size:36px}.wallet-home .wallet-total{min-height:210px;padding:19px}.wallet-home .wallet-total strong{font-size:39px}.wallet-primary-actions{display:grid;grid-template-columns:1fr 1fr}.wallet-primary-action{justify-content:center;padding:11px 8px}.wallet-home .wallet-balances{grid-template-columns:repeat(2,minmax(0,1fr))}.wallet-tools{grid-template-columns:1fr}.wallet-section-heading{align-items:flex-start;flex-direction:column}.wallet-muted-label{font-size:8px}}
+
+/* Wallet account controls and activity */
+.wallet-total-controls{display:flex;align-items:center;gap:14px}
+.wallet-total-controls button,.wallet-ledger-controls button,.wallet-ledger-controls select{border:1px solid rgba(222,241,224,.18);background:rgba(4,13,11,.35);color:var(--text);border-radius:8px;padding:8px 10px;font-size:9px}
+.wallet-total-controls button:hover,.wallet-ledger-controls button:hover{border-color:var(--mint);color:var(--mint)}
+.wallet-ledger-controls{display:flex;align-items:end;gap:8px}
+.wallet-ledger-controls label{display:grid;gap:4px;color:var(--muted);font-size:9px}
+.wallet-ledger-controls select{min-width:86px}
+.wallet-ledger-controls button{cursor:pointer;white-space:nowrap}
+.wallet-ledger-panel .module-table-wrap{overflow-x:auto}
+.wallet-ledger-panel .module-table{min-width:560px}
+@media(max-width:560px){.wallet-total-controls{gap:8px;flex-wrap:wrap;justify-content:flex-end}.wallet-total-controls button{font-size:8px;padding:7px}.wallet-ledger-controls{width:100%;justify-content:space-between}.wallet-ledger-controls label{flex:1}.wallet-ledger-controls select{width:100%}}

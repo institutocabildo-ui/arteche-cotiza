@@ -30,7 +30,7 @@
  </div>
  <div class="wallet-overview">
   <div class="wallet-total">
-   <div class="wallet-total-top"><small>SALDO TOTAL ESTIMADO</small><span class="wallet-status"><i></i> Cuenta demo</span></div>
+   <div class="wallet-total-top"><small>SALDO TOTAL ESTIMADO</small><div class="wallet-total-controls"><button type="button" id="wallet-toggle-visibility" aria-pressed="false">◉ Ocultar saldo</button><span class="wallet-status"><i></i> Cuenta demo</span></div></div>
    <strong id="wallet-total-usd">USD —</strong>
    <span>Valor orientativo consolidado en dólares · no representa fondos reales.</span>
    <div class="wallet-primary-actions">
@@ -55,7 +55,7 @@
    <button id="wallet-convert" type="button" class="full-btn">Convertir demo</button><small id="wallet-message" role="status">Las operaciones son simuladas y quedan en este dispositivo.</small>
   </div>
  </div>
- <div class="wallet-ledger-panel" id="wallet-ledger-section"><div class="wallet-section-heading"><div><span class="section-kicker">ACTIVIDAD DE LA CUENTA</span><h2>Movimientos recientes</h2></div><span class="wallet-muted-label">Últimos 12 registros</span></div><div id="wallet-ledger" class="module-table-wrap"><p class="module-status">No hay movimientos.</p></div></div>
+ <div class="wallet-ledger-panel" id="wallet-ledger-section"><div class="wallet-section-heading"><div><span class="section-kicker">ACTIVIDAD DE LA CUENTA</span><h2>Movimientos recientes</h2></div><div class="wallet-ledger-controls"><label>Filtrar<select id="wallet-ledger-filter"><option value="all">Todos</option><option value="USD">USD</option><option value="ARS">ARS</option><option value="EUR">EUR</option><option value="CNY">CNY</option><option value="BTC">BTC</option><option value="USDT">USDT</option></select></label><button type="button" id="wallet-export-ledger">Exportar CSV ↓</button></div></div><div id="wallet-ledger" class="module-table-wrap"><p class="module-status">No hay movimientos.</p></div></div>
  <div class="wallet-demo-disclaimer"><b>Modo demostración.</b> Los saldos iniciales y las operaciones se guardan únicamente en este navegador. ARTECHE todavía no recibe depósitos, no ejecuta transferencias reales y no está conectado a bancos, Mercado Pago ni exchanges.</div>
 </section>
 <section class="ticker-ribbon" aria-label="Resumen de mercados"><div class="ticker-brand"><span class="live-dot"></span> PULSO DE MERCADO</div><div class="ticker-item"><small>BITCOIN / USD</small><strong id="ticker-btc">—</strong></div><div class="ticker-item"><small>DÓLAR BLUE</small><strong id="ticker-blue">—</strong></div><div class="ticker-item"><small>DÓLAR MEP</small><strong id="ticker-mep">—</strong></div><div class="ticker-item"><small>DÓLAR CCL</small><strong id="ticker-ccl">—</strong></div><a href="#converter" class="ticker-cta">CONVERTIR ↘</a></section>
