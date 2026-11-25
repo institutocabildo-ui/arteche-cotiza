@@ -21,6 +21,14 @@ Arteche Terminal is a responsive financial dashboard covering global fiat refere
 - **Price alerts:** browser-local thresholds checked during periodic refreshes while the page remains open. Alerts are not a server-side or guaranteed push-notification service.
 - **Market context:** curated external news-source links; the terminal does not fabricate headlines.
 
+## Integrated financial suite
+
+- **Arteche Bonos (demo):** calculator for current yield, approximate yield to maturity and price/parity using user-entered instrument terms. No unverified bond quotes are presented.
+- **Arteche Activos (demo):** local portfolio tracker using quantities and reference prices entered by the user.
+- **Arteche Wallet (demo):** local multi-currency balances for USD, ARS, EUR, CNY, GBP, JPY, CHF, BRL, BTC and USDT; simulated deposits, withdrawals and conversions only. No custody, bank or exchange connection.
+- **Arteche Intelligence (observation):** separates intraday and multi-day analysis status; does not place orders or promise returns.
+- **Profit Lock (demo):** accounting simulation for separating realized gains from operating capital; does not move funds.
+
 ## Data providers and attribution
 
 - Argentine current quotes: DólarAPI.
