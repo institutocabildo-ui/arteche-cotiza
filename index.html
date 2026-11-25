@@ -22,6 +22,7 @@
 <button id="refresh" class="refresh-btn" type="button">↻ <span>Actualizar</span></button>
 </header>
 <main>
+<nav class="arteche-module-nav" aria-label="Módulos Arteche"><a href="#converter">Divisas</a><a href="#bonds">Bonos</a><a href="#portfolio">Activos</a><a href="#wallet">Wallet</a><a href="#intelligence">Intelligence</a><a href="#profit-lock">Profit Lock</a></nav>
 <section class="ticker-ribbon" aria-label="Resumen de mercados"><div class="ticker-brand"><span class="live-dot"></span> PULSO DE MERCADO</div><div class="ticker-item"><small>BITCOIN / USD</small><strong id="ticker-btc">—</strong></div><div class="ticker-item"><small>DÓLAR BLUE</small><strong id="ticker-blue">—</strong></div><div class="ticker-item"><small>DÓLAR MEP</small><strong id="ticker-mep">—</strong></div><div class="ticker-item"><small>DÓLAR CCL</small><strong id="ticker-ccl">—</strong></div><a href="#converter" class="ticker-cta">CONVERTIR ↘</a></section>
 <section class="panel converter-panel" id="converter">
 <div class="panel-heading"><div><span class="section-kicker">03 / CONVERSOR RÁPIDO</span><h2>Calculá al instante</h2><p>Estimación con referencias disponibles.</p></div><span class="panel-symbol">⇄</span></div>
@@ -110,6 +111,51 @@
 <section class="panel news-hub-panel" id="news-hub"><div class="panel-heading"><div><span class="section-kicker">12 / INFORMACIÓN PARA DECIDIR</span><h2>Radar de oportunidades y noticias</h2><p>Noticias dentro de Arteche: commodities, energía, minería, agro, industria, mercados y cripto.</p></div><span class="data-source" id="news-updated">GDELT · ACTUALIDAD</span></div><div class="news-filter-row"><button class="news-filter active" data-news-filter="all">Todo</button><button class="news-filter" data-news-filter="commodities">Commodities</button><button class="news-filter" data-news-filter="energy">Energía</button><button class="news-filter" data-news-filter="markets">Mercados</button><button class="news-filter" data-news-filter="politics">Política</button><button class="news-filter" data-news-filter="crypto">Cripto</button></div><div id="news-feed" class="inpage-news-grid"><div class="loading-card">Consultando noticias…</div></div><p class="calc-disclaimer">Titulares y enlaces proceden de medios externos indexados. Las noticias no son recomendaciones de inversión; verificá el contenido original, fecha, contexto y riesgos antes de operar.</p></section>
 <section class="panel global-fx-panel" id="global-fx"><div class="panel-heading"><div><span class="section-kicker">09 / MERCADO DE DIVISAS GLOBAL</span><h2>Monedas del mundo</h2><p>Referencias internacionales diarias frente al USD. No equivalen a cotizaciones bancarias locales.</p></div><span class="data-source" id="fx-global-updated">FRANKFURTER / ECB</span></div><div id="global-fx-grid" class="global-fx-grid"><div class="loading-card">Consultando divisas…</div></div><p class="calc-disclaimer">Fuente internacional de referencia. Para conversiones con ARS se utiliza el dólar blue de compra/venta disponible en la terminal; el resultado es estimativo y no una oferta de cambio.</p></section>
 <section class="panel crypto-market-panel" id="crypto-markets"><div class="panel-heading"><div><span class="section-kicker">10 / CRIPTOACTIVOS</span><h2>Mercado cripto · Top 250</h2><p>Listado por capitalización de mercado, con precio, variación 24 h y volumen.</p></div><span class="data-source" id="crypto-updated">POWERED BY COINGECKO</span></div><div class="crypto-tools"><input id="crypto-search" type="search" placeholder="Buscar moneda, símbolo… (ej. Solana, XRP)" aria-label="Buscar criptoactivo"><span id="crypto-count">Cargando activos…</span></div><div class="crypto-table-wrap"><table class="crypto-table"><thead><tr><th>#</th><th>Activo</th><th>Precio USD</th><th>24 h</th><th>Capitalización</th><th>Volumen 24 h</th></tr></thead><tbody id="crypto-rows"><tr><td colspan="6">Consultando mercado cripto…</td></tr></tbody></table></div><p class="calc-disclaimer">Listado de hasta 250 criptoactivos principales por capitalización. Los tokens de baja liquidez o no indexados pueden no aparecer. Los datos dependen de disponibilidad y límites de CoinGecko.</p></section>
+
+<section class="arteche-suite-intro"><div><span class="section-kicker">ARTECHE FINANCIAL · SUITE INTEGRADA</span><h2>De la información a la gestión.</h2><p>Una misma terminal para consultar mercados, analizar instrumentos y probar una cartera multidivisa.</p></div><span class="demo-flag">MÓDULOS OPERATIVOS EN MODO DEMO</span></section>
+<section class="panel bonds-panel" id="bonds">
+ <div class="panel-heading"><div><span class="section-kicker">13 / RENTA FIJA</span><h2>Arteche Bonos</h2><p>Calculadora de rendimiento para bonos soberanos y corporativos. Ingresá datos verificados del instrumento.</p></div><span class="data-source">CÁLCULO LOCAL</span></div>
+ <div class="bond-grid">
+  <label>Instrumento<input id="bond-name" value="AL30" maxlength="24"></label>
+  <label>Precio cada 100 nominales<input id="bond-price" type="number" min="0.01" step="0.01" value="68"></label>
+  <label>Valor nominal<input id="bond-face" type="number" min="0.01" step="0.01" value="100"></label>
+  <label>Cupón anual (%)<input id="bond-coupon" type="number" min="0" step="0.01" value="0.75"></label>
+  <label>Pagos por año<select id="bond-frequency"><option value="1">Anual</option><option value="2" selected>Semestral</option><option value="4">Trimestral</option><option value="12">Mensual</option></select></label>
+  <label>Vencimiento<input id="bond-maturity" type="date"></label>
+ </div>
+ <div class="bond-results"><article><small>RENDIMIENTO CORRIENTE</small><strong id="bond-current-yield">—</strong></article><article><small>TIR ESTIMADA ANUAL</small><strong id="bond-ytm">—</strong></article><article><small>PRECIO / VALOR NOMINAL</small><strong id="bond-parity">—</strong></article></div>
+ <p id="bond-note" class="calc-disclaimer">La TIR usa flujos periódicos simplificados y supone que se mantienen hasta vencimiento. No incluye amortizaciones parciales, impuestos, comisiones, legislación ni riesgo de crédito. Verificá calendario y cashflows del bono antes de usar el resultado.</p>
+ <div class="module-status">Feed de precios, cupones y vencimientos: pendiente de integrar con un proveedor autorizado. No se muestran cotizaciones inventadas.</div>
+</section>
+<section class="panel portfolio-panel" id="portfolio">
+ <div class="panel-heading"><div><span class="section-kicker">14 / CARTERA</span><h2>Arteche Activos</h2><p>Seguimiento de posiciones de demostración con precios ingresados por el usuario.</p></div><span class="demo-flag">SIMULACIÓN</span></div>
+ <div class="asset-entry-grid"><label>Activo / ticker<input id="asset-symbol" maxlength="18" placeholder="Ej. BTC, AL30, AAPL"></label><label>Unidades<input id="asset-quantity" type="number" min="0.00000001" step="any" placeholder="Cantidad"></label><label>Precio de referencia USD<input id="asset-price" type="number" min="0.00000001" step="any" placeholder="Precio unitario"></label><button id="asset-add" class="full-btn" type="button">Agregar posición demo</button></div>
+ <div class="module-table-wrap"><table class="module-table"><thead><tr><th>Activo</th><th>Unidades</th><th>Precio USD</th><th>Valor USD</th><th></th></tr></thead><tbody id="asset-rows"><tr><td colspan="5">Todavía no hay posiciones guardadas.</td></tr></tbody></table></div>
+ <div class="module-status">Los valores se calculan con los precios que ingreses; no se conectan automáticamente a un broker o custodio.</div>
+</section>
+<section class="panel wallet-panel" id="wallet">
+ <div class="panel-heading"><div><span class="section-kicker">15 / CUENTA MULTIDIVISA</span><h2>Arteche Wallet</h2><p>Saldos separados por moneda: conservar una ganancia en CNY, EUR, USD u otra divisa sin conversión automática.</p></div><span class="demo-flag">DINERO FICTICIO</span></div>
+ <div class="wallet-total"><small>PATRIMONIO DEMO EQUIVALENTE</small><strong id="wallet-total-usd">USD 0.00</strong><span>Estimación con referencias disponibles; no es dinero real ni saldo bancario.</span></div>
+ <div id="wallet-balances" class="wallet-balances"></div>
+ <div class="wallet-actions-grid">
+  <div><h3>Ingreso / retiro simulado</h3><label>Moneda<select id="wallet-currency"></select></label><label>Importe<input id="wallet-amount" type="number" min="0.01" step="any" placeholder="Importe"></label><div class="wallet-buttons"><button id="wallet-deposit" type="button" class="full-btn">Ingresar demo</button><button id="wallet-withdraw" type="button" class="secondary-btn">Retirar demo</button></div></div>
+  <div><h3>Conversión interna simulada</h3><label>De<select id="wallet-from"></select></label><label>A<select id="wallet-to"></select></label><label>Importe<input id="wallet-convert-amount" type="number" min="0.01" step="any" placeholder="Importe"></label><button id="wallet-convert" type="button" class="full-btn">Convertir demo</button><small id="wallet-message" role="status">Sin movimientos todavía.</small></div>
+ </div>
+ <h3 class="module-subtitle">Últimos movimientos</h3><div id="wallet-ledger" class="module-table-wrap"><p class="module-status">No hay movimientos.</p></div>
+ <div class="module-status">Esta billetera guarda únicamente datos de prueba en este navegador. No recibe depósitos, no mueve fondos y no está conectada a bancos, Mercado Pago ni exchanges.</div>
+</section>
+<section class="panel intelligence-panel" id="intelligence">
+ <div class="panel-heading"><div><span class="section-kicker">16 / ANÁLISIS ASISTIDO</span><h2>Arteche Intelligence</h2><p>Panel de observación con dos horizontes independientes: intradiario y multidiario.</p></div><span class="data-source">MODO OBSERVACIÓN</span></div>
+ <div class="intelligence-grid"><article><span>01 · INTRADIARIO</span><strong id="intel-intraday">Esperando datos</strong><p id="intel-intraday-note">Analiza variación diaria disponible y advierte si faltan datos.</p></article><article><span>02 · MULTIDIARIO</span><strong id="intel-swing">Esperando datos</strong><p id="intel-swing-note">Requiere series históricas y validación antes de generar señales.</p></article></div>
+ <div class="module-status">Este panel es informativo. No genera órdenes, no ejecuta operaciones y no predice ganancias. Backtesting y paper trading deben preceder cualquier conexión operativa.</div>
+</section>
+<section class="panel profit-lock-panel" id="profit-lock">
+ <div class="panel-heading"><div><span class="section-kicker">17 / PROTECCIÓN CONTABLE</span><h2>Profit Lock</h2><p>Simulá la separación de ganancias realizadas del capital operativo.</p></div><span class="demo-flag">SIMULACIÓN</span></div>
+ <div class="profit-grid"><label>Capital inicial USD<input id="profit-initial" type="number" min="0.01" step="0.01" value="10"></label><label>Valor actual USD<input id="profit-current" type="number" min="0" step="0.01" value="20"></label><label>Ganancia a proteger USD<input id="profit-protect" type="number" min="0" step="0.01" value="10"></label><button id="profit-calc" class="full-btn" type="button">Calcular protección</button></div>
+ <div class="bond-results"><article><small>CAPITAL OPERATIVO</small><strong id="profit-operating">—</strong></article><article><small>GANANCIA A PROTEGER</small><strong id="profit-protected">—</strong></article><article><small>REMANENTE NO PROTEGIDO</small><strong id="profit-unlocked">—</strong></article></div>
+ <p id="profit-message" class="calc-disclaimer">Ejemplo didáctico: el cálculo no mueve dinero ni garantiza preservar el capital. Sólo ganancias realizadas y liquidadas podrían separarse efectivamente.</p>
+</section>
+
 <section class="panel activity-panel">
 <div class="activity-head"><div><span class="section-kicker">ARTECHE CLUB · PROGRESO</span><h2>Tu actividad en la terminal</h2><p id="activity-account-note">Iniciá sesión con Google para identificar tu perfil. Por ahora, los puntos se guardan en este dispositivo.</p></div><div class="points"><small>PUNTOS</small><strong id="ag-puntos">0</strong></div></div>
 <div class="progress-track"><div id="ag-barra"></div></div><div class="activity-foot"><b id="ag-nivel">Explorador</b><span id="ag-next">Próximo nivel: Analista</span><span id="ag-actividad">0 días activos</span></div><p id="ag-toast" role="status" aria-live="polite">Completá una conversión para registrar actividad.</p>
@@ -118,5 +164,5 @@
 </main>
 <footer><span>ARTECHE</span><span>UNA PLATAFORMA DE SANTIAGO BARBOSA</span><span>GRATIS · BETA</span></footer>
 </div>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script><script src="firebase-config.js"></script><script src="app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script><script src="firebase-config.js"></script><script src="app.js"></script><script src="arteche-modules.js"></script>
 </body></html>
