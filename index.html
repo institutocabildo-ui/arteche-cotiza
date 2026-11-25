@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#07111f">
-<title>ARTECHE | Mercados, conversor e información financiera</title>
-<meta name="description" content="Terminal financiera de Grupo Arteche: gráficos de mercado, cotizaciones del dólar argentino, Bitcoin, conversor y noticias financieras.">
+<title>ARTECHE Wallet | Tu cuenta multidivisa</title>
+<meta name="description" content="ARTECHE Wallet: una experiencia multidivisa para organizar saldos, convertir monedas y consultar movimientos.">
 <meta name="keywords" content="ARTECHE Terminal, dólar hoy, dólar blue, dólar MEP, Bitcoin precio, mercados, TradingView, conversor dólar">
 <meta name="author" content="Santiago Barboza"><meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://institutocabildo-ui.github.io/arteche-cotiza/">
 <meta property="og:type" content="website"><meta property="og:site_name" content="Grupo Arteche"><meta property="og:locale" content="es_AR">
-<meta property="og:title" content="ARTECHE Terminal — Mercados en una sola pantalla"><meta property="og:description" content="Dólar, Bitcoin, gráficos, conversor y contexto financiero.">
+<meta property="og:title" content="ARTECHE Wallet — Tu cuenta multidivisa"><meta property="og:description" content="Organizá tus monedas, consultá saldos y convertí divisas desde una sola billetera.">
 <meta property="og:url" content="https://institutocabildo-ui.github.io/arteche-cotiza/"><meta name="twitter:card" content="summary">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"ARTECHE Terminal","url":"https://institutocabildo-ui.github.io/arteche-cotiza/","applicationCategory":"FinanceApplication","operatingSystem":"Any","inLanguage":"es-AR","publisher":{"@type":"Organization","name":"Grupo Arteche"}}</script>
 <link rel="preconnect" href="https://s.tradingview.com"><link rel="preconnect" href="https://dolarapi.com"><link rel="stylesheet" href="styles.css">
@@ -23,16 +23,40 @@
 </header>
 <main>
 <nav class="arteche-module-nav wallet-first-nav" aria-label="Navegación principal"><a class="selected" href="#wallet">Mi billetera</a><a href="#converter">Convertir</a><a href="#wallet-actions">Ingresar / retirar</a><a href="#market-explorer">Explorar</a></nav>
-<section class="panel wallet-panel" id="wallet">
- <div class="panel-heading"><div><span class="section-kicker">ARTECHE WALLET · CUENTA MULTIDIVISA</span><h2>Tu dinero, en un solo lugar.</h2><p>Una billetera para mantener, convertir y organizar distintas monedas sin conversión automática.</p></div><span class="demo-flag">CUENTA DEMO</span></div>
- <div class="wallet-total"><small>SALDO TOTAL ESTIMADO · DEMOSTRACIÓN</small><strong id="wallet-total-usd">USD 0.00</strong><span>Estimación con referencias disponibles; no es dinero real ni saldo bancario.</span></div>
- <div id="wallet-balances" class="wallet-balances"></div>
- <div class="wallet-actions-grid" id="wallet-actions">
-  <div><h3>Ingreso / retiro simulado</h3><label>Moneda<select id="wallet-currency"></select></label><label>Importe<input id="wallet-amount" type="number" min="0.01" step="any" placeholder="Importe"></label><div class="wallet-buttons"><button id="wallet-deposit" type="button" class="full-btn">Ingresar demo</button><button id="wallet-withdraw" type="button" class="secondary-btn">Retirar demo</button></div></div>
-  <div><h3>Conversión interna simulada</h3><label>De<select id="wallet-from"></select></label><label>A<select id="wallet-to"></select></label><label>Importe<input id="wallet-convert-amount" type="number" min="0.01" step="any" placeholder="Importe"></label><button id="wallet-convert" type="button" class="full-btn">Convertir demo</button><small id="wallet-message" role="status">Sin movimientos todavía.</small></div>
+<section class="wallet-home" id="wallet">
+ <div class="wallet-home-head">
+  <div><span class="section-kicker">ARTECHE WALLET · CUENTA MULTIDIVISA</span><h1>Tu dinero. <em>En movimiento.</em></h1><p>Una cuenta para organizar tus monedas, consultar saldos y operar desde un solo lugar.</p></div>
+  <span class="demo-flag">ENTORNO DE DEMOSTRACIÓN</span>
  </div>
- <h3 class="module-subtitle">Últimos movimientos</h3><div id="wallet-ledger" class="module-table-wrap"><p class="module-status">No hay movimientos.</p></div>
- <div class="module-status">Esta billetera guarda únicamente datos de prueba en este navegador. No recibe depósitos, no mueve fondos y no está conectada a bancos, Mercado Pago ni exchanges.</div>
+ <div class="wallet-overview">
+  <div class="wallet-total">
+   <div class="wallet-total-top"><small>SALDO TOTAL ESTIMADO</small><span class="wallet-status"><i></i> Cuenta demo</span></div>
+   <strong id="wallet-total-usd">USD —</strong>
+   <span>Valor orientativo consolidado en dólares · no representa fondos reales.</span>
+   <div class="wallet-primary-actions">
+    <a href="#wallet-actions" class="wallet-primary-action"><b>＋</b><span>Ingresar</span></a>
+    <a href="#wallet-actions" class="wallet-primary-action"><b>↗</b><span>Retirar</span></a>
+    <a href="#wallet-actions" class="wallet-primary-action"><b>⇄</b><span>Convertir</span></a>
+    <a href="#wallet-ledger-section" class="wallet-primary-action"><b>⌁</b><span>Movimientos</span></a>
+   </div>
+  </div>
+  <aside class="wallet-side-note"><span class="wallet-side-icon">A/</span><b>Tu cuenta, en múltiples monedas.</b><p>Mantené cada saldo en su divisa. No convertimos tus tenencias automáticamente.</p><div><span>ARS</span><span>USD</span><span>EUR</span><span>CNY</span><span>BTC</span><span>USDT</span></div></aside>
+ </div>
+ <div class="wallet-section-heading"><div><span class="section-kicker">TUS CUENTAS</span><h2>Saldos por moneda</h2></div><span class="wallet-muted-label">10 divisas disponibles en demo</span></div>
+ <div id="wallet-balances" class="wallet-balances"></div>
+ <div class="wallet-tools" id="wallet-actions">
+  <div class="wallet-tool-card"><div class="wallet-tool-heading"><span class="wallet-tool-icon">＋</span><div><h3>Ingresar o retirar</h3><p>Registrá movimientos de prueba en tu cuenta local.</p></div></div>
+   <label>Moneda<select id="wallet-currency"></select></label><label>Importe<input id="wallet-amount" type="number" min="0.01" step="any" placeholder="Ingresá un importe"></label>
+   <div class="wallet-buttons"><button id="wallet-deposit" type="button" class="full-btn">＋ Ingresar demo</button><button id="wallet-withdraw" type="button" class="secondary-btn">Retirar demo</button></div>
+  </div>
+  <div class="wallet-tool-card"><div class="wallet-tool-heading"><span class="wallet-tool-icon">⇄</span><div><h3>Convertir monedas</h3><p>Pasá de una divisa a otra con referencias disponibles.</p></div></div>
+   <div class="wallet-convert-row"><label>De<select id="wallet-from"></select></label><label>A<select id="wallet-to"></select></label></div>
+   <label>Importe<input id="wallet-convert-amount" type="number" min="0.01" step="any" placeholder="Ingresá un importe"></label>
+   <button id="wallet-convert" type="button" class="full-btn">Convertir demo</button><small id="wallet-message" role="status">Las operaciones son simuladas y quedan en este dispositivo.</small>
+  </div>
+ </div>
+ <div class="wallet-ledger-panel" id="wallet-ledger-section"><div class="wallet-section-heading"><div><span class="section-kicker">ACTIVIDAD DE LA CUENTA</span><h2>Movimientos recientes</h2></div><span class="wallet-muted-label">Últimos 12 registros</span></div><div id="wallet-ledger" class="module-table-wrap"><p class="module-status">No hay movimientos.</p></div></div>
+ <div class="wallet-demo-disclaimer"><b>Modo demostración.</b> Los saldos iniciales y las operaciones se guardan únicamente en este navegador. ARTECHE todavía no recibe depósitos, no ejecuta transferencias reales y no está conectado a bancos, Mercado Pago ni exchanges.</div>
 </section>
 <section class="ticker-ribbon" aria-label="Resumen de mercados"><div class="ticker-brand"><span class="live-dot"></span> PULSO DE MERCADO</div><div class="ticker-item"><small>BITCOIN / USD</small><strong id="ticker-btc">—</strong></div><div class="ticker-item"><small>DÓLAR BLUE</small><strong id="ticker-blue">—</strong></div><div class="ticker-item"><small>DÓLAR MEP</small><strong id="ticker-mep">—</strong></div><div class="ticker-item"><small>DÓLAR CCL</small><strong id="ticker-ccl">—</strong></div><a href="#converter" class="ticker-cta">CONVERTIR ↘</a></section>
 <section class="panel converter-panel" id="converter">
